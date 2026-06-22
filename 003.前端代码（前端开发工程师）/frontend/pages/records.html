@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>交易记录 - 每日记账</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="records.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar hide-mobile">
+      <div class="sidebar-brand">
+        <div class="brand-icon">💰</div>
+        <div class="brand-text">
+          <h1>每日记账</h1>
+          <p>您的个人财务助手</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../index.html" class="nav-item">
+          <span class="material-symbols-outlined">home</span>
+          <span>首页</span>
+        </a>
+        <a href="records.html" class="nav-item active">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+          <span>交易</span>
+        </a>
+        <a href="food.html" class="nav-item">
+          <span class="material-symbols-outlined">restaurant</span>
+          <span>餐饮</span>
+        </a>
+        <a href="statistics.html" class="nav-item">
+          <span class="material-symbols-outlined">bar_chart</span>
+          <span>统计</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+          <span class="material-symbols-outlined">settings</span>
+          <span>设置</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="logout-btn">
+          <span class="material-symbols-outlined">logout</span>
+          <span>退出登录</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page Header -->
+      <header class="page-header">
+        <div class="header-top">
+          <h1 class="page-title">交易明细</h1>
+          <button class="export-btn">
+            <span class="material-symbols-outlined">download</span>
+            <span>导出报表</span>
+          </button>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="summary-cards">
+          <div class="summary-card">
+            <div class="summary-info">
+              <span class="summary-label">本月总支出</span>
+              <span class="summary-value expense">-¥5,420.00</span>
+            </div>
+            <div class="summary-badge up">较上月 +12%</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-info">
+              <span class="summary-label">本月总收入</span>
+              <span class="summary-value income">+¥12,800.00</span>
+            </div>
+            <div class="summary-badge down">较上月 +5%</div>
+          </div>
+        </div>
+
+        <!-- Search & Filters -->
+        <div class="search-filters">
+          <div class="search-box">
+            <span class="material-symbols-outlined">search</span>
+            <input type="text" placeholder="搜索交易、商户或备注...">
+          </div>
+          <div class="filter-chips">
+            <button class="filter-chip active">全部分类</button>
+            <button class="filter-chip">餐饮</button>
+            <button class="filter-chip">购物</button>
+            <button class="filter-chip">交通</button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Transaction List -->
+      <section class="transaction-section">
+        <!-- Today -->
+        <div class="date-group">
+          <div class="date-header">
+            <h3 class="date-title">今天 <span class="date-detail">10月25日</span></h3>
+            <span class="day-total">今日支出: -¥324.00</span>
+          </div>
+
+          <div class="transaction-list">
+            <div class="transaction-item">
+              <div class="transaction-icon food">🍜</div>
+              <div class="transaction-info">
+                <span class="transaction-name">全食超市</span>
+                <span class="transaction-meta">12:30 · 支付宝</span>
+              </div>
+              <span class="transaction-amount expense">-¥142.50</span>
+            </div>
+
+            <div class="transaction-item">
+              <div class="transaction-icon transport">🚗</div>
+              <div class="transaction-info">
+                <span class="transaction-name">优步打车</span>
+                <span class="transaction-meta">08:45 · 微信支付</span>
+              </div>
+              <span class="transaction-amount expense">-¥58.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Yesterday -->
+        <div class="date-group">
+          <div class="date-header">
+            <h3 class="date-title">10月24日 <span class="date-detail">周四</span></h3>
+            <span class="day-total">当日支出: -¥1,240.00</span>
+          </div>
+
+          <div class="transaction-list">
+            <div class="transaction-item">
+              <div class="transaction-icon income">💰</div>
+              <div class="transaction-info">
+                <span class="transaction-name">工资收入</span>
+                <span class="transaction-meta">10:00 · 招商银行</span>
+              </div>
+              <span class="transaction-amount income">+¥8,500.00</span>
+            </div>
+
+            <div class="transaction-item">
+              <div class="transaction-icon shopping">🛒</div>
+              <div class="transaction-info">
+                <span class="transaction-name">优衣库旗舰店</span>
+                <span class="transaction-meta">19:20 · 信用卡</span>
+              </div>
+              <span class="transaction-amount expense">-¥799.00</span>
+            </div>
+
+            <div class="transaction-item">
+              <div class="transaction-icon entertainment">☕</div>
+              <div class="transaction-info">
+                <span class="transaction-name">星巴克</span>
+                <span class="transaction-meta">15:45 · 现金</span>
+              </div>
+              <span class="transaction-amount expense">-¥38.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Oct 23 -->
+        <div class="date-group">
+          <div class="date-header">
+            <h3 class="date-title">10月23日 <span class="date-detail">周三</span></h3>
+            <span class="day-total">当日支出: -¥186.00</span>
+          </div>
+
+          <div class="transaction-list">
+            <div class="transaction-item">
+              <div class="transaction-icon entertainment">🎬</div>
+              <div class="transaction-info">
+                <span class="transaction-name">万达影城</span>
+                <span class="transaction-meta">20:00 · 支付宝</span>
+              </div>
+              <span class="transaction-amount expense">-¥90.00</span>
+            </div>
+
+            <div class="transaction-item">
+              <div class="transaction-icon living">🏠</div>
+              <div class="transaction-info">
+                <span class="transaction-name">房租</span>
+                <span class="transaction-meta">09:00 · 银行转账</span>
+              </div>
+              <span class="transaction-amount expense">-¥2,500.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Load More -->
+        <div class="load-more">
+          <button class="btn btn-secondary">
+            加载更多
+            <span class="material-symbols-outlined">expand_more</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav show-mobile-only">
+      <a href="../index.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">home</span>
+        <span>首页</span>
+      </a>
+      <a href="records.html" class="mobile-nav-item active">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+        <span>交易</span>
+      </a>
+      <a href="food.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">restaurant</span>
+        <span>餐饮</span>
+      </a>
+      <a href="statistics.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">bar_chart</span>
+        <span>统计</span>
+      </a>
+      <a href="profile.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">person</span>
+        <span>我的</span>
+      </a>
+    </nav>
+  </div>
+</body>
+</html>

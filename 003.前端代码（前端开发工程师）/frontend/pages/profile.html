@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的 - 每日记账</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar hide-mobile">
+      <div class="sidebar-brand">
+        <div class="brand-icon">💰</div>
+        <div class="brand-text">
+          <h1>每日记账</h1>
+          <p>您的个人财务助手</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../index.html" class="nav-item">
+          <span class="material-symbols-outlined">home</span>
+          <span>首页</span>
+        </a>
+        <a href="records.html" class="nav-item">
+          <span class="material-symbols-outlined">receipt_long</span>
+          <span>交易</span>
+        </a>
+        <a href="food.html" class="nav-item">
+          <span class="material-symbols-outlined">restaurant</span>
+          <span>餐饮</span>
+        </a>
+        <a href="statistics.html" class="nav-item">
+          <span class="material-symbols-outlined">bar_chart</span>
+          <span>统计</span>
+        </a>
+        <a href="profile.html" class="nav-item active">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+          <span>设置</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="logout-btn">
+          <span class="material-symbols-outlined">logout</span>
+          <span>退出登录</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page Header -->
+      <header class="page-header">
+        <h1 class="page-title">设置</h1>
+      </header>
+
+      <!-- Profile Section -->
+      <section class="profile-section">
+        <div class="profile-card">
+          <div class="profile-avatar-section">
+            <div class="avatar-wrapper">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" alt="用户头像" class="avatar-img">
+              <button class="avatar-edit-btn">
+                <span class="material-symbols-outlined">edit</span>
+              </button>
+            </div>
+            <button class="change-avatar-link">修改头像</button>
+          </div>
+
+          <div class="profile-info-card">
+            <div class="info-row">
+              <label class="info-label">昵称</label>
+              <input type="text" class="info-input" value="林悦">
+            </div>
+            <div class="info-row">
+              <label class="info-label">用户名</label>
+              <input type="text" class="info-input" value="linyue2023" disabled>
+            </div>
+            <div class="info-row">
+              <label class="info-label">个性签名</label>
+              <textarea class="info-textarea" rows="2">悦享生活，理财有道。</textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Payment Accounts Section -->
+      <section class="accounts-section">
+        <h3 class="section-title">
+          <span class="material-symbols-outlined">account_balance</span>
+          支付账户管理
+        </h3>
+        <div class="accounts-grid">
+          <div class="account-card">
+            <div class="account-icon wechat">
+              <span class="material-symbols-outlined">payments</span>
+            </div>
+            <div class="account-info">
+              <span class="account-name">微信支付</span>
+              <span class="account-status">已绑定</span>
+            </div>
+            <button class="account-edit-btn">编辑</button>
+          </div>
+
+          <div class="account-card">
+            <div class="account-icon alipay">
+              <span class="material-symbols-outlined">credit_card</span>
+            </div>
+            <div class="account-info">
+              <span class="account-name">支付宝</span>
+              <span class="account-status">已绑定</span>
+            </div>
+            <button class="account-edit-btn">编辑</button>
+          </div>
+
+          <div class="account-card">
+            <div class="account-icon bank">
+              <span class="material-symbols-outlined">account_balance</span>
+            </div>
+            <div class="account-info">
+              <span class="account-name">招商银行卡</span>
+              <span class="account-status">尾号 8888</span>
+            </div>
+            <button class="account-edit-btn">编辑</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Settings Lists -->
+      <section class="settings-section">
+        <!-- Security Settings -->
+        <div class="settings-card">
+          <h3 class="settings-title">
+            <span class="material-symbols-outlined">security</span>
+            安全设置
+          </h3>
+          <div class="settings-list">
+            <a href="#" class="settings-item">
+              <span class="material-symbols-outlined">lock_reset</span>
+              <span class="settings-text">修改密码</span>
+              <span class="material-symbols-outlined arrow">chevron_right</span>
+            </a>
+            <div class="settings-item toggle-item">
+              <span class="material-symbols-outlined">fingerprint</span>
+              <span class="settings-text">指纹/面容解锁</span>
+              <label class="toggle">
+                <input type="checkbox">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preferences -->
+        <div class="settings-card">
+          <h3 class="settings-title">
+            <span class="material-symbols-outlined">tune</span>
+            个性化偏好
+          </h3>
+          <div class="settings-list">
+            <div class="settings-item toggle-item">
+              <span class="material-symbols-outlined">notifications_active</span>
+              <span class="settings-text">消息提醒</span>
+              <label class="toggle">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="settings-item toggle-item">
+              <span class="material-symbols-outlined">dark_mode</span>
+              <span class="settings-text">深色模式</span>
+              <label class="toggle">
+                <input type="checkbox">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <div class="about-card">
+          <h3 class="about-title">关于每日记账</h3>
+          <p class="about-version">版本 1.0.1</p>
+          <p class="about-desc">一款轻量、快捷、无负担的个人日常记账工具</p>
+          <p class="about-slogan">一秒记账，清楚花钱 💕</p>
+        </div>
+      </section>
+
+      <!-- Logout Button -->
+      <div class="logout-section">
+        <a href="login.html" class="btn btn-outline-full">
+          <span class="material-symbols-outlined">logout</span>
+          退出登录
+        </a>
+      </div>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav show-mobile-only">
+      <a href="../index.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">home</span>
+        <span>首页</span>
+      </a>
+      <a href="records.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">receipt_long</span>
+        <span>交易</span>
+      </a>
+      <a href="food.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">restaurant</span>
+        <span>餐饮</span>
+      </a>
+      <a href="statistics.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">bar_chart</span>
+        <span>统计</span>
+      </a>
+      <a href="profile.html" class="mobile-nav-item active">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+        <span>我的</span>
+      </a>
+    </nav>
+  </div>
+</body>
+</html>

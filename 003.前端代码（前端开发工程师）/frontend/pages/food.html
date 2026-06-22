@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>餐饮明细 - 每日记账</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="food.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar hide-mobile">
+      <div class="sidebar-brand">
+        <div class="brand-icon">💰</div>
+        <div class="brand-text">
+          <h1>每日记账</h1>
+          <p>您的个人财务助手</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../index.html" class="nav-item">
+          <span class="material-symbols-outlined">home</span>
+          <span>首页</span>
+        </a>
+        <a href="records.html" class="nav-item">
+          <span class="material-symbols-outlined">receipt_long</span>
+          <span>交易</span>
+        </a>
+        <a href="statistics.html" class="nav-item">
+          <span class="material-symbols-outlined">bar_chart</span>
+          <span>统计</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+          <span class="material-symbols-outlined">settings</span>
+          <span>设置</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="logout-btn">
+          <span class="material-symbols-outlined">logout</span>
+          <span>退出登录</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- Page Header -->
+        <header class="page-header">
+          <div class="header-left">
+            <a href="../index.html" class="back-btn">
+              <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+            <div class="header-title-group">
+              <h2 class="page-title">🍜 餐饮</h2>
+              <p class="page-subtitle">每一餐都值得被记录</p>
+            </div>
+          </div>
+          <div class="header-right">
+            <button class="icon-btn" id="add-food-btn" title="快速记录餐饮">
+              <span class="material-symbols-outlined">add_circle</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Dining Summary Cards -->
+        <section class="summary-row">
+          <div class="summary-card">
+            <div class="summary-card-icon">
+              <span class="material-symbols-outlined">calendar_month</span>
+            </div>
+            <div class="summary-card-body">
+              <span class="summary-label">本月餐饮</span>
+              <span class="summary-value">¥1,847.50</span>
+              <span class="summary-trend up">较上月 +8.2%</span>
+            </div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-card-icon accent">
+              <span class="material-symbols-outlined">lunch_dining</span>
+            </div>
+            <div class="summary-card-body">
+              <span class="summary-label">本月笔数</span>
+              <span class="summary-value">42 笔</span>
+              <span class="summary-trend down">日均 1.4 笔</span>
+            </div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-card-icon">
+              <span class="material-symbols-outlined">avg_time</span>
+            </div>
+            <div class="summary-card-body">
+              <span class="summary-label">笔均消费</span>
+              <span class="summary-value">¥43.99</span>
+              <span class="summary-trend down">较上月 -5.3%</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sub-Category Quick Filter -->
+        <section class="sub-category-section">
+          <h3 class="section-title">餐饮分类</h3>
+          <div class="sub-category-grid">
+            <button class="sub-category-item active" data-sub="all">
+              <div class="sub-icon">🍽️</div>
+              <span>全部</span>
+            </button>
+            <button class="sub-category-item" data-sub="breakfast">
+              <div class="sub-icon">🥐</div>
+              <span>早餐</span>
+            </button>
+            <button class="sub-category-item" data-sub="lunch">
+              <div class="sub-icon">🍱</div>
+              <span>午餐</span>
+            </button>
+            <button class="sub-category-item" data-sub="dinner">
+              <div class="sub-icon">🍲</div>
+              <span>晚餐</span>
+            </button>
+            <button class="sub-category-item" data-sub="takeout">
+              <div class="sub-icon">🥡</div>
+              <span>外卖</span>
+            </button>
+            <button class="sub-category-item" data-sub="snack">
+              <div class="sub-icon">🍿</div>
+              <span>零食</span>
+            </button>
+            <button class="sub-category-item" data-sub="drink">
+              <div class="sub-icon">🧋</div>
+              <span>饮品</span>
+            </button>
+            <button class="sub-category-item" data-sub="social">
+              <div class="sub-icon">🥂</div>
+              <span>聚餐</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Sub-Category Spending Breakdown -->
+        <section class="breakdown-section">
+          <h3 class="section-title">消费分布</h3>
+          <div class="breakdown-list">
+            <div class="breakdown-item">
+              <div class="breakdown-left">
+                <span class="breakdown-emoji">🥡</span>
+                <div class="breakdown-info">
+                  <span class="breakdown-name">外卖</span>
+                  <div class="breakdown-bar-wrapper">
+                    <div class="breakdown-bar" style="width: 35%; background: #FFB6C1;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="breakdown-right">
+                <span class="breakdown-amount">¥642.00</span>
+                <span class="breakdown-percent">35%</span>
+              </div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-left">
+                <span class="breakdown-emoji">🍱</span>
+                <div class="breakdown-info">
+                  <span class="breakdown-name">午餐</span>
+                  <div class="breakdown-bar-wrapper">
+                    <div class="breakdown-bar" style="width: 25%; background: #FF8C9A;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="breakdown-right">
+                <span class="breakdown-amount">¥462.00</span>
+                <span class="breakdown-percent">25%</span>
+              </div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-left">
+                <span class="breakdown-emoji">🥂</span>
+                <div class="breakdown-info">
+                  <span class="breakdown-name">聚餐</span>
+                  <div class="breakdown-bar-wrapper">
+                    <div class="breakdown-bar" style="width: 18%; background: #E8B4BC;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="breakdown-right">
+                <span class="breakdown-amount">¥330.00</span>
+                <span class="breakdown-percent">18%</span>
+              </div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-left">
+                <span class="breakdown-emoji">🧋</span>
+                <div class="breakdown-info">
+                  <span class="breakdown-name">饮品</span>
+                  <div class="breakdown-bar-wrapper">
+                    <div class="breakdown-bar" style="width: 12%; background: #FFB7A5;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="breakdown-right">
+                <span class="breakdown-amount">¥218.00</span>
+                <span class="breakdown-percent">12%</span>
+              </div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-left">
+                <span class="breakdown-emoji">🥐</span>
+                <div class="breakdown-info">
+                  <span class="breakdown-name">早餐</span>
+                  <div class="breakdown-bar-wrapper">
+                    <div class="breakdown-bar" style="width: 6%; background: #B5EAD7;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="breakdown-right">
+                <span class="breakdown-amount">¥110.50</span>
+                <span class="breakdown-percent">6%</span>
+              </div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-left">
+                <span class="breakdown-emoji">🍿</span>
+                <div class="breakdown-info">
+                  <span class="breakdown-name">零食</span>
+                  <div class="breakdown-bar-wrapper">
+                    <div class="breakdown-bar" style="width: 4%; background: #E2D1F9;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="breakdown-right">
+                <span class="breakdown-amount">¥85.00</span>
+                <span class="breakdown-percent">4%</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Recent Dining Transactions -->
+        <section class="transaction-section">
+          <div class="section-header">
+            <h3 class="section-title">餐饮记录</h3>
+            <div class="sort-selector">
+              <button class="sort-btn active" data-sort="time">最新</button>
+              <button class="sort-btn" data-sort="amount">金额</button>
+            </div>
+          </div>
+
+          <!-- Date Group: Today -->
+          <div class="date-group">
+            <div class="date-header">
+              <h4 class="date-title">今天 <span class="date-detail">6月18日</span></h4>
+              <span class="day-total">小计: ¥84.00</span>
+            </div>
+
+            <div class="food-list">
+              <div class="food-item" data-sub="lunch">
+                <div class="food-icon lunch">🍱</div>
+                <div class="food-info">
+                  <div class="food-top">
+                    <span class="food-name">黄焖鸡米饭</span>
+                    <span class="food-amount">-¥28.00</span>
+                  </div>
+                  <div class="food-bottom">
+                    <span class="food-meta">午餐 · 12:30</span>
+                    <span class="food-payment">微信支付</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="food-item" data-sub="drink">
+                <div class="food-icon drink">🧋</div>
+                <div class="food-info">
+                  <div class="food-top">
+                    <span class="food-name">喜茶 · 多肉葡萄</span>
+                    <span class="food-amount">-¥18.00</span>
+                  </div>
+                  <div class="food-bottom">
+                    <span class="food-meta">饮品 · 15:20</span>
+                    <span class="food-payment">支付宝</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="food-item" data-sub="takeout">
+                <div class="food-icon takeout">🥡</div>
+                <div class="food-info">
+                  <div class="food-top">
+                    <span class="food-name">麦当劳 · 巨无霸套餐</span>
+                    <span class="food-amount">-¥38.00</span>
+                  </div>
+                  <div class="food-bottom">
+                    <span class="food-meta">外卖 · 19:45</span>
+                    <span class="food-payment">美团支付</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Date Group: Yesterday -->
+          <div class="date-group">
+            <div class="date-header">
+              <h4 class="date-title">昨天 <span class="date-detail">6月17日</span></h4>
+              <span class="day-total">小计: ¥156.50</span>
+            </div>
+
+            <div class="food-list">
+              <div class="food-item" data-sub="breakfast">
+                <div class="food-icon breakfast">🥐</div>
+                <div class="food-info">
+                  <div class="food-top">
+                    <span class="food-name">巴比馒头 · 鲜肉包×2 + 豆浆</span>
+                    <span class="food-amount">-¥12.50</span>
+                  </div>
+                  <div class="food-bottom">
+                    <span class="food-meta">早餐 · 08:15</span>
+                    <span class="food-payment">微信支付</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="food-item" data-sub="lunch">
+                <div class="food-icon lunch">🍱</div>
+                <div class="food-info">
+                  <div class="food-top">
+                    <span class="food-name">沙县小吃 · 鸡腿饭</span>
+                    <span class="food-amount">-¥22.00</span>
+                  </div>
+                  <div class="food-bottom">
+                    <span class="food-meta">午餐 · 12:05</span>
+                    <span class="food-payment">微信支付</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="food-item" data-sub="social">
+                <div class="food-icon social">🥂</div>
+                <div class="food-info">
+                  <div class="food-top">
+                    <span class="food-name">海底捞 · 部门聚餐 AA</span>
+                    <span class="food-amount">-¥122.00</span>
+                  </div>
+                  <div class="food-bottom">
+                    <span class="food-meta">聚餐 · 19:00</span>
+                    <span class="food-payment">支付宝</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Date Group: 6月16日 -->
+          <div class="date-group">
+            <div class="date-header">
+              <h4 class="date-title">6月16日 <span class="date-detail">周二</span></h4>
+              <span class="day-total">小计: ¥67.00</span>
+            </div>
+
+            <div class="food-list">
+              <div class="food-item" data-sub="breakfast">
+                <div class="food-icon breakfast">🥐</div>
+                <div class="food-info">
+                  <div class="food-top">
+                    <span class="food-name">全家便利店 · 三明治+咖啡</span>
+                    <span class="food-amount">-¥15.00</span>
+                  </div>
+                  <div class="food-bottom">
+                    <span class="food-meta">早餐 · 08:30</span>
+                    <span class="food-payment">微信支付</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="food-item" data-sub="lunch">
+                <div class="food-icon lunch">🍱</div>
+                <div class="food-info">
+                  <div class="food-top">
+                    <span class="food-name">和府捞面</span>
+                    <span class="food-amount">-¥35.00</span>
+                  </div>
+                  <div class="food-bottom">
+                    <span class="food-meta">午餐 · 12:45</span>
+                    <span class="food-payment">信用卡</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="food-item" data-sub="snack">
+                <div class="food-icon snack">🍿</div>
+                <div class="food-info">
+                  <div class="food-top">
+                    <span class="food-name">良品铺子 · 坚果零食</span>
+                    <span class="food-amount">-¥17.00</span>
+                  </div>
+                  <div class="food-bottom">
+                    <span class="food-meta">零食 · 16:00</span>
+                    <span class="food-payment">微信支付</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Load More -->
+        <div class="load-more">
+          <button class="btn btn-secondary">
+            加载更多
+            <span class="material-symbols-outlined">expand_more</span>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav show-mobile-only">
+      <a href="../index.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">home</span>
+        <span>首页</span>
+      </a>
+      <a href="records.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">receipt_long</span>
+        <span>交易</span>
+      </a>
+      <a href="statistics.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">bar_chart</span>
+        <span>统计</span>
+      </a>
+      <a href="profile.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">person</span>
+        <span>我的</span>
+      </a>
+    </nav>
+  </div>
+
+  <script>
+    // Sub-category filter
+    document.querySelectorAll('.sub-category-item').forEach(item => {
+      item.addEventListener('click', () => {
+        document.querySelectorAll('.sub-category-item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+
+        const sub = item.dataset.sub;
+        document.querySelectorAll('.food-item').forEach(food => {
+          if (sub === 'all' || food.dataset.sub === sub) {
+            food.style.display = '';
+          } else {
+            food.style.display = 'none';
+          }
+        });
+
+        // Show/hide date groups that have no visible items
+        document.querySelectorAll('.date-group').forEach(group => {
+          const visibleItems = group.querySelectorAll('.food-item[style*="display:"]').length;
+          const hiddenItems = group.querySelectorAll('.food-item[style*="display: none"]').length;
+          const totalItems = group.querySelectorAll('.food-item').length;
+          if (sub === 'all') {
+            group.style.display = '';
+          } else if (hiddenItems === totalItems) {
+            group.style.display = 'none';
+          } else {
+            group.style.display = '';
+          }
+        });
+      });
+    });
+
+    // Sort toggle
+    document.querySelectorAll('.sort-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    // Quick add button - navigate back to homepage with food category pre-selected
+    document.getElementById('add-food-btn').addEventListener('click', () => {
+      window.location.href = '../index.html#food';
+    });
+  </script>
+</body>
+</html>

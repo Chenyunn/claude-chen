@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>统计 - 每日记账</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="statistics.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar hide-mobile">
+      <div class="sidebar-brand">
+        <div class="brand-icon">💰</div>
+        <div class="brand-text">
+          <h1>每日记账</h1>
+          <p>您的个人财务助手</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../index.html" class="nav-item">
+          <span class="material-symbols-outlined">home</span>
+          <span>首页</span>
+        </a>
+        <a href="records.html" class="nav-item">
+          <span class="material-symbols-outlined">receipt_long</span>
+          <span>交易</span>
+        </a>
+        <a href="food.html" class="nav-item">
+          <span class="material-symbols-outlined">restaurant</span>
+          <span>餐饮</span>
+        </a>
+        <a href="statistics.html" class="nav-item active">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
+          <span>统计</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+          <span class="material-symbols-outlined">settings</span>
+          <span>设置</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="logout-btn">
+          <span class="material-symbols-outlined">logout</span>
+          <span>退出登录</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page Header -->
+      <header class="page-header">
+        <div class="header-top">
+          <div>
+            <h1 class="page-title">月度财务洞察</h1>
+            <p class="page-subtitle">正在查看 2023年10月 的数据分析</p>
+          </div>
+          <div class="header-actions">
+            <div class="period-toggle">
+              <button class="period-btn active">按月</button>
+              <button class="period-btn">按季</button>
+              <button class="period-btn">按年</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Summary Cards -->
+      <section class="summary-section">
+        <div class="summary-cards">
+          <div class="summary-card">
+            <span class="summary-label">总支出</span>
+            <div class="summary-value-row">
+              <span class="summary-value">¥4,285.50</span>
+              <span class="summary-change up">
+                <span class="material-symbols-outlined">arrow_upward</span>12%
+              </span>
+            </div>
+          </div>
+          <div class="summary-card">
+            <span class="summary-label">总收入</span>
+            <div class="summary-value-row">
+              <span class="summary-value income">¥6,120.00</span>
+              <span class="summary-change down">
+                <span class="material-symbols-outlined">arrow_upward</span>5%
+              </span>
+            </div>
+          </div>
+          <div class="summary-card">
+            <span class="summary-label">支出大头</span>
+            <div class="summary-category">
+              <div class="category-icon">🍜</div>
+              <span>餐饮美食</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Charts Section -->
+      <section class="charts-section">
+        <!-- Trend Chart -->
+        <div class="chart-card trend-chart">
+          <h3 class="chart-title">支出趋势图</h3>
+          <div class="chart-legend">
+            <span class="legend-item"><span class="legend-dot primary"></span> 实际支出</span>
+            <span class="legend-item"><span class="legend-dot secondary"></span> 预算</span>
+          </div>
+          <div class="chart-area">
+            <svg class="trend-svg" viewBox="0 0 400 150" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="trendGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#864e5a;stop-opacity:0.3"/>
+                  <stop offset="100%" style="stop-color:#864e5a;stop-opacity:0"/>
+                </linearGradient>
+              </defs>
+              <path class="trend-area" d="M0,120 Q50,80 100,100 T200,60 T300,80 T400,40 L400,150 L0,150 Z" fill="url(#trendGradient)"/>
+              <path class="trend-line" d="M0,120 Q50,80 100,100 T200,60 T300,80 T400,40" fill="none" stroke="#864e5a" stroke-width="3" stroke-linecap="round"/>
+              <circle class="trend-dot" cx="100" cy="100" r="5" fill="#864e5a"/>
+              <circle class="trend-dot" cx="200" cy="60" r="5" fill="#864e5a"/>
+              <circle class="trend-dot" cx="300" cy="80" r="5" fill="#864e5a"/>
+              <circle class="trend-dot" cx="400" cy="40" r="5" fill="#864e5a"/>
+            </svg>
+            <div class="chart-labels">
+              <span>10月01日</span>
+              <span>10月08日</span>
+              <span>10月15日</span>
+              <span>10月22日</span>
+              <span>10月31日</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pie Chart -->
+        <div class="chart-card pie-chart">
+          <h3 class="chart-title">分类支出占比</h3>
+          <div class="pie-container">
+            <svg class="pie-svg" viewBox="0 0 100 100">
+              <circle class="pie-segment seg-1" cx="50" cy="50" r="40" fill="none" stroke="#864e5a" stroke-width="20" stroke-dasharray="75.4 251.2" stroke-dashoffset="0" transform="rotate(-90 50 50)"/>
+              <circle class="pie-segment seg-2" cx="50" cy="50" r="40" fill="none" stroke="#655781" stroke-width="20" stroke-dasharray="50.3 251.2" stroke-dashoffset="-75.4" transform="rotate(-90 50 50)"/>
+              <circle class="pie-segment seg-3" cx="50" cy="50" r="40" fill="none" stroke="#9b4053" stroke-width="20" stroke-dasharray="37.7 251.2" stroke-dashoffset="-125.7" transform="rotate(-90 50 50)"/>
+              <circle class="pie-segment seg-4" cx="50" cy="50" r="40" fill="none" stroke="#deccfd" stroke-width="20" stroke-dasharray="87.9 251.2" stroke-dashoffset="-163.4" transform="rotate(-90 50 50)"/>
+            </svg>
+            <div class="pie-center">
+              <span class="pie-label">总计</span>
+              <span class="pie-value">¥4.2k</span>
+            </div>
+          </div>
+          <div class="pie-legend">
+            <div class="legend-row">
+              <span class="legend-dot" style="background:#864e5a"></span>
+              <span class="legend-name">餐饮</span>
+              <span class="legend-percent">30%</span>
+            </div>
+            <div class="legend-row">
+              <span class="legend-dot" style="background:#655781"></span>
+              <span class="legend-name">购物</span>
+              <span class="legend-percent">20%</span>
+            </div>
+            <div class="legend-row">
+              <span class="legend-dot" style="background:#9b4053"></span>
+              <span class="legend-name">交通</span>
+              <span class="legend-percent">15%</span>
+            </div>
+            <div class="legend-row">
+              <span class="legend-dot" style="background:#deccfd"></span>
+              <span class="legend-name">其他</span>
+              <span class="legend-percent">35%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Details Section -->
+      <section class="details-section">
+        <div class="detail-card">
+          <h3 class="chart-title">支出明细</h3>
+          <div class="detail-list">
+            <div class="detail-item">
+              <div class="detail-icon shopping">🛒</div>
+              <div class="detail-info">
+                <span class="detail-name">超市买菜</span>
+                <span class="detail-desc">生活必需</span>
+              </div>
+              <div class="detail-value">
+                <span class="detail-amount">¥842.12</span>
+                <div class="detail-bar">
+                  <div class="detail-bar-fill" style="width:65%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon living">⚡</div>
+              <div class="detail-info">
+                <span class="detail-name">水电煤气</span>
+                <span class="detail-desc">固定支出</span>
+              </div>
+              <div class="detail-value">
+                <span class="detail-amount">¥215.50</span>
+                <div class="detail-bar">
+                  <div class="detail-bar-fill secondary" style="width:25%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon entertainment">🏋️</div>
+              <div class="detail-info">
+                <span class="detail-name">健身房会员</span>
+                <span class="detail-desc">健康生活</span>
+              </div>
+              <div class="detail-value">
+                <span class="detail-amount">¥55.00</span>
+                <div class="detail-bar">
+                  <div class="detail-bar-fill tertiary" style="width:10%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav show-mobile-only">
+      <a href="../index.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">home</span>
+        <span>首页</span>
+      </a>
+      <a href="records.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">receipt_long</span>
+        <span>交易</span>
+      </a>
+      <a href="food.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">restaurant</span>
+        <span>餐饮</span>
+      </a>
+      <a href="statistics.html" class="mobile-nav-item active">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
+        <span>统计</span>
+      </a>
+      <a href="profile.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">person</span>
+        <span>我的</span>
+      </a>
+    </nav>
+  </div>
+
+  <script>
+    // Period toggle
+    document.querySelectorAll('.period-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

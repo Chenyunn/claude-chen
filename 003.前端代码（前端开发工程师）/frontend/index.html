@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页 - 每日记账</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="pages/index.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar hide-mobile">
+      <div class="sidebar-brand">
+        <div class="brand-icon">💰</div>
+        <div class="brand-text">
+          <h1>每日记账</h1>
+          <p>您的个人财务助手</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item active">
+          <span class="material-symbols-outlined">home</span>
+          <span>首页</span>
+        </a>
+        <a href="pages/records.html" class="nav-item">
+          <span class="material-symbols-outlined">receipt_long</span>
+          <span>交易</span>
+        </a>
+        <a href="pages/food.html" class="nav-item">
+          <span class="material-symbols-outlined">restaurant</span>
+          <span>餐饮</span>
+        </a>
+        <a href="pages/statistics.html" class="nav-item">
+          <span class="material-symbols-outlined">bar_chart</span>
+          <span>统计</span>
+        </a>
+        <a href="pages/profile.html" class="nav-item">
+          <span class="material-symbols-outlined">settings</span>
+          <span>设置</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="pages/login.html" class="logout-btn">
+          <span class="material-symbols-outlined">logout</span>
+          <span>退出登录</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <!-- Top Header -->
+        <header class="top-header">
+          <div class="header-left">
+            <h2 class="page-title">财务概览</h2>
+            <p class="page-subtitle">欢迎回来，今天的财务状况看起来很健康。</p>
+          </div>
+          <div class="header-right">
+            <div class="user-avatar">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="用户头像">
+            </div>
+          </div>
+        </header>
+
+        <!-- Quick Add Section -->
+        <section class="quick-add-section">
+          <div class="add-card">
+            <div class="add-card-header">
+              <h3>新增账目</h3>
+              <div class="type-toggle">
+                <button class="type-btn active" data-type="expense">支出</button>
+                <button class="type-btn" data-type="income">收入</button>
+              </div>
+            </div>
+
+            <!-- Amount Input -->
+            <div class="amount-section">
+              <label class="amount-label">金额</label>
+              <div class="amount-input-wrapper">
+                <span class="currency-symbol">¥</span>
+                <input type="number" id="amount-input" class="amount-input" placeholder="0.00" step="0.01">
+              </div>
+            </div>
+
+            <!-- Category Grid -->
+            <div class="category-section">
+              <label class="category-label">选择分类</label>
+              <div class="category-grid">
+                <button class="category-item selected" data-category="food">
+                  <div class="category-icon food">🍜</div>
+                  <span>餐饮</span>
+                </button>
+                <button class="category-item" data-category="shopping">
+                  <div class="category-icon shopping">🛒</div>
+                  <span>购物</span>
+                </button>
+                <button class="category-item" data-category="transport">
+                  <div class="category-icon transport">🚗</div>
+                  <span>交通</span>
+                </button>
+                <button class="category-item" data-category="living">
+                  <div class="category-icon living">🏠</div>
+                  <span>居住</span>
+                </button>
+                <button class="category-item" data-category="entertainment">
+                  <div class="category-icon entertainment">🎮</div>
+                  <span>娱乐</span>
+                </button>
+                <button class="category-item" data-category="medical">
+                  <div class="category-icon medical">💊</div>
+                  <span>医疗</span>
+                </button>
+                <button class="category-item" data-category="communication">
+                  <div class="category-icon communication">📱</div>
+                  <span>通讯</span>
+                </button>
+                <button class="category-item" data-category="other">
+                  <div class="category-icon other">📦</div>
+                  <span>其他</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Details -->
+            <div class="details-section">
+              <div class="detail-row">
+                <label class="detail-label">支付账户</label>
+                <div class="account-selector">
+                  <div class="account-item selected">
+                    <span class="material-symbols-outlined">account_balance_wallet</span>
+                    <span>微信支付</span>
+                    <span class="material-symbols-outlined check">check_circle</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-row">
+                <label class="detail-label">日期</label>
+                <input type="date" id="date-input" class="date-input">
+              </div>
+
+              <div class="detail-row">
+                <label class="detail-label">备注（选填）</label>
+                <textarea id="note-input" class="note-input" placeholder="这笔钱花在哪里了？" rows="2"></textarea>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button class="btn btn-primary btn-full btn-lg" id="submit-btn">
+              <span class="material-symbols-outlined">save</span>
+              保存账目
+            </button>
+          </div>
+        </section>
+
+        <!-- Recent Transactions -->
+        <section class="recent-section">
+          <div class="section-header">
+            <h3>最近活动</h3>
+            <a href="pages/records.html" class="view-all-link">查看全部</a>
+          </div>
+
+          <div class="transaction-list">
+            <div class="transaction-item">
+              <div class="transaction-icon food">🍜</div>
+              <div class="transaction-info">
+                <span class="transaction-name">优衣库</span>
+                <span class="transaction-meta">今天, 2:15 PM · 微信支付</span>
+              </div>
+              <div class="transaction-amount expense">-¥299.00</div>
+            </div>
+
+            <div class="transaction-item">
+              <div class="transaction-icon entertainment">☕</div>
+              <div class="transaction-info">
+                <span class="transaction-name">星巴克</span>
+                <span class="transaction-meta">今天, 9:05 AM · 微信支付</span>
+              </div>
+              <div class="transaction-amount expense">-¥38.00</div>
+            </div>
+
+            <div class="transaction-item">
+              <div class="transaction-icon income">💰</div>
+              <div class="transaction-info">
+                <span class="transaction-name">工资转账</span>
+                <span class="transaction-meta">昨天 · 招商银行</span>
+              </div>
+              <div class="transaction-amount income">+¥15,000.00</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav show-mobile-only">
+      <a href="index.html" class="mobile-nav-item active">
+        <span class="material-symbols-outlined">home</span>
+        <span>首页</span>
+      </a>
+      <a href="pages/records.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">receipt_long</span>
+        <span>交易</span>
+      </a>
+      <a href="pages/food.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">restaurant</span>
+        <span>餐饮</span>
+      </a>
+      <a href="pages/statistics.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">bar_chart</span>
+        <span>统计</span>
+      </a>
+      <a href="pages/profile.html" class="mobile-nav-item">
+        <span class="material-symbols-outlined">person</span>
+        <span>我的</span>
+      </a>
+    </nav>
+  </div>
+
+  <script>
+    // Set today's date as default
+    document.getElementById('date-input').valueAsDate = new Date();
+
+    // Category selection
+    document.querySelectorAll('.category-item').forEach(item => {
+      item.addEventListener('click', () => {
+        // If clicking already-selected category, navigate to detail page
+        if (item.classList.contains('selected')) {
+          const category = item.dataset.category;
+          if (category === 'food') {
+            window.location.href = 'pages/food.html';
+            return;
+          }
+          // Future: other category pages can be added here
+        }
+
+        document.querySelectorAll('.category-item').forEach(i => i.classList.remove('selected'));
+        item.classList.add('selected');
+      });
+    });
+
+    // Type toggle
+    document.querySelectorAll('.type-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    // Submit
+    document.getElementById('submit-btn').addEventListener('click', () => {
+      const amount = document.getElementById('amount-input').value;
+      const category = document.querySelector('.category-item.selected');
+      const categoryName = category ? category.querySelector('span').textContent : '';
+
+      if (!amount || parseFloat(amount) <= 0) {
+        alert('请输入有效金额');
+        return;
+      }
+
+      alert(`已添加 ${categoryName} ¥${amount}`);
+      document.getElementById('amount-input').value = '';
+    });
+  </script>
+</body>
+</html>
