@@ -283,7 +283,7 @@
       </div>
 
       <!-- Register Form -->
-      <form id="register-form" onsubmit="return handleRegister(event)">
+      <form id="register-form">
         <div class="form-row">
           <div class="input-group">
             <label class="input-label" for="username">用户名</label>
@@ -394,80 +394,166 @@
     </div>
   </div>
 
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/auth.js"></script>
   <script>
-    function togglePassword(inputId, btn) {
-      const input = document.getElementById(inputId);
-      const icon = btn.querySelector('.material-symbols-outlined');
+    (function () {
+      'use strict';
 
-      if (input.type === 'password') {
-        input.type = 'text';
-        icon.textContent = 'visibility_off';
-      } else {
-        input.type = 'password';
-        icon.textContent = 'visibility';
-      }
-    }
+      var form = document.getElementById('register-form');
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var originalBtnText = submitBtn.textContent;
 
-    function handleRegister(event) {
-      event.preventDefault();
-
-      const username = document.getElementById('username');
-      const password = document.getElementById('password');
-      const confirmPassword = document.getElementById('confirm-password');
-      const terms = document.getElementById('terms');
-
-      // Reset errors
-      document.querySelectorAll('.input-error-hint').forEach(el => el.textContent = '');
-      document.querySelectorAll('.input').forEach(el => {
-        el.classList.remove('input-error');
-        el.style.borderColor = '';
-      });
-
-      let hasError = false;
-
-      // Validate username
-      const usernameRegex = /^[a-zA-Z0-9]{6,20}$/;
-      if (!username.value.trim()) {
-        document.getElementById('username-error').textContent = '用户名不能为空';
-        username.classList.add('input-error');
-        hasError = true;
-      } else if (!usernameRegex.test(username.value)) {
-        document.getElementById('username-error').textContent = '用户名需6-20位字母或数字';
-        username.classList.add('input-error');
-        hasError = true;
-      }
-
-      // Validate password
-      if (!password.value) {
-        document.getElementById('password-error').textContent = '密码不能为空';
-        password.classList.add('input-error');
-        hasError = true;
-      } else if (password.value.length < 6 || password.value.length > 16) {
-        document.getElementById('password-error').textContent = '密码需6-16位';
-        password.classList.add('input-error');
-        hasError = true;
-      }
-
-      // Validate confirm password
-      if (password.value !== confirmPassword.value) {
-        document.getElementById('confirm-password-error').textContent = '两次输入的密码不一致';
-        confirmPassword.classList.add('input-error');
-        hasError = true;
-      }
-
-      if (hasError) {
-        document.querySelectorAll('.input-error').forEach(el => {
-          el.classList.add('shake');
-          setTimeout(() => el.classList.remove('shake'), 300);
+      // 如果已登录，直接跳转首页
+      if (api.getToken()) {
+        auth.checkAuth().then(function (ok) {
+          if (ok) window.location.replace('../index.html');
         });
+      }
+
+      /**
+       * 显示字段错误
+       */
+      function showFieldError(fieldId, message) {
+        var input = document.getElementById(fieldId);
+        var errorEl = document.getElementById(fieldId + '-error');
+        errorEl.textContent = message;
+        input.classList.add('input-error');
+        input.classList.add('shake');
+        setTimeout(function () { input.classList.remove('shake'); }, 300);
+      }
+
+      /**
+       * 清除所有字段错误
+       */
+      function clearErrors() {
+        ['username', 'password', 'confirm-password'].forEach(function (id) {
+          document.getElementById(id + '-error').textContent = '';
+          document.getElementById(id).classList.remove('input-error');
+        });
+      }
+
+      /**
+       * 设置按钮加载状态
+       */
+      function setLoading(loading) {
+        if (loading) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = '注册中...';
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      }
+
+      /**
+       * 切换密码可见性
+       */
+      window.togglePassword = function (inputId, btn) {
+        var input = document.getElementById(inputId);
+        var icon = btn.querySelector('.material-symbols-outlined');
+
+        if (input.type === 'password') {
+          input.type = 'text';
+          icon.textContent = 'visibility_off';
+        } else {
+          input.type = 'password';
+          icon.textContent = 'visibility';
+        }
+      };
+
+      /**
+       * 处理注册
+       */
+      async function handleRegister(event) {
+        event.preventDefault();
+
+        var username = document.getElementById('username').value.trim();
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirm-password').value;
+        var terms = document.getElementById('terms');
+
+        // 清除旧错误
+        clearErrors();
+
+        // 前端校验
+        var hasError = false;
+        var usernameRegex = /^[a-zA-Z0-9]{6,20}$/;
+
+        if (!username) {
+          showFieldError('username', '用户名不能为空');
+          hasError = true;
+        } else if (!usernameRegex.test(username)) {
+          showFieldError('username', '用户名需6-20位字母或数字');
+          hasError = true;
+        }
+
+        if (!password) {
+          showFieldError('password', '密码不能为空');
+          hasError = true;
+        } else if (password.length < 6 || password.length > 20) {
+          showFieldError('password', '密码需6-20位');
+          hasError = true;
+        }
+
+        if (password !== confirmPassword) {
+          showFieldError('confirm-password', '两次输入的密码不一致');
+          hasError = true;
+        }
+
+        if (!terms.checked) {
+          Toast.warning('请先阅读并同意服务协议和隐私政策');
+          hasError = true;
+        }
+
+        if (hasError) {
+          document.querySelectorAll('.input-error').forEach(function (el) {
+            el.classList.add('shake');
+            setTimeout(function () { el.classList.remove('shake'); }, 300);
+          });
+          return false;
+        }
+
+        // 调用后端 API
+        setLoading(true);
+
+        try {
+          var result = await auth.register({
+            username: username,
+            password: password,
+          });
+
+          Toast.success('注册成功！欢迎加入，正在跳转...', 1500);
+          setTimeout(function () {
+            window.location.href = '../index.html';
+          }, 800);
+        } catch (err) {
+          var msg = err.message || '注册失败，请重试';
+
+          if (err.code === 409) {
+            // 用户名已存在
+            showFieldError('username', msg);
+            Toast.error(msg, 4000);
+          } else if (err.code === 422 && err.errors) {
+            // 字段校验错误
+            err.errors.forEach(function (e) {
+              if (e.field === 'username') showFieldError('username', e.message);
+              if (e.field === 'password') showFieldError('password', e.message);
+            });
+          } else {
+            Toast.error(msg);
+          }
+        } finally {
+          setLoading(false);
+        }
+
         return false;
       }
 
-      // Simulate registration success
-      alert('注册成功！正在跳转到首页...');
-      window.location.href = '../index.html';
-      return false;
-    }
+      // 绑定表单提交
+      form.addEventListener('submit', handleRegister);
+    })();
   </script>
 </body>
 </html>

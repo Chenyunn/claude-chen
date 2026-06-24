@@ -225,50 +225,157 @@
     </nav>
   </div>
 
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/auth.js"></script>
   <script>
-    // Set today's date as default
-    document.getElementById('date-input').valueAsDate = new Date();
+    (function () {
+      'use strict';
 
-    // Category selection
-    document.querySelectorAll('.category-item').forEach(item => {
-      item.addEventListener('click', () => {
-        // If clicking already-selected category, navigate to detail page
-        if (item.classList.contains('selected')) {
-          const category = item.dataset.category;
-          if (category === 'food') {
-            window.location.href = 'pages/food.html';
-            return;
-          }
-          // Future: other category pages can be added here
+      // ============================================================
+      // 认证守卫：未登录跳转到登录页
+      // ============================================================
+      async function guardAuth() {
+        if (!api.getToken()) {
+          window.location.replace('pages/login.html');
+          return false;
         }
 
-        document.querySelectorAll('.category-item').forEach(i => i.classList.remove('selected'));
-        item.classList.add('selected');
-      });
-    });
-
-    // Type toggle
-    document.querySelectorAll('.type-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-      });
-    });
-
-    // Submit
-    document.getElementById('submit-btn').addEventListener('click', () => {
-      const amount = document.getElementById('amount-input').value;
-      const category = document.querySelector('.category-item.selected');
-      const categoryName = category ? category.querySelector('span').textContent : '';
-
-      if (!amount || parseFloat(amount) <= 0) {
-        alert('请输入有效金额');
-        return;
+        try {
+          await auth.fetchUser();
+          return true;
+        } catch (err) {
+          // Token 过期或无效
+          api.removeToken();
+          window.location.replace('pages/login.html');
+          return false;
+        }
       }
 
-      alert(`已添加 ${categoryName} ¥${amount}`);
-      document.getElementById('amount-input').value = '';
-    });
+      // ============================================================
+      // 渲染用户信息
+      // ============================================================
+      function renderUserInfo() {
+        var user = auth.getUser();
+        if (!user) return;
+
+        // 更新头像
+        var avatarImg = document.querySelector('.user-avatar img');
+        if (avatarImg && user.avatarUrl) {
+          avatarImg.src = user.avatarUrl;
+        }
+
+        // 更新欢迎语
+        var subtitle = document.querySelector('.page-subtitle');
+        if (subtitle && user.nickname) {
+          subtitle.textContent = '欢迎回来，' + user.nickname + '。今天的财务状况看起来很健康。';
+        }
+      }
+
+      // ============================================================
+      // 退出登录
+      // ============================================================
+      async function handleLogout(event) {
+        event.preventDefault();
+
+        var loadingToast = Toast.loading('正在退出...');
+
+        try {
+          await auth.logout();
+          Toast.success('已安全退出', 1500);
+          setTimeout(function () {
+            window.location.replace('pages/login.html');
+          }, 600);
+        } catch (err) {
+          // 即使后端失败，也清除本地状态并跳转
+          api.removeToken();
+          Toast.info('已退出登录', 1500);
+          setTimeout(function () {
+            window.location.replace('pages/login.html');
+          }, 600);
+        } finally {
+          loadingToast.dismiss();
+        }
+      }
+
+      // ============================================================
+      // 初始化
+      // ============================================================
+      async function init() {
+        // 1. 认证守卫
+        var ok = await guardAuth();
+        if (!ok) return;
+
+        // 2. 渲染用户信息
+        renderUserInfo();
+
+        // 3. 绑定退出登录
+        var logoutBtn = document.querySelector('.logout-btn');
+        if (logoutBtn) {
+          logoutBtn.addEventListener('click', handleLogout);
+        }
+
+        // 4. 初始化页面功能
+        initQuickAdd();
+      }
+
+      // ============================================================
+      // 快捷记账
+      // ============================================================
+      function initQuickAdd() {
+        // Set today's date as default
+        document.getElementById('date-input').valueAsDate = new Date();
+
+        // Category selection
+        document.querySelectorAll('.category-item').forEach(function (item) {
+          item.addEventListener('click', function () {
+            // If clicking already-selected category, navigate to detail page
+            if (item.classList.contains('selected')) {
+              var category = item.dataset.category;
+              if (category === 'food') {
+                window.location.href = 'pages/food.html';
+                return;
+              }
+            }
+
+            document.querySelectorAll('.category-item').forEach(function (i) {
+              i.classList.remove('selected');
+            });
+            item.classList.add('selected');
+          });
+        });
+
+        // Type toggle
+        document.querySelectorAll('.type-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            document.querySelectorAll('.type-btn').forEach(function (b) {
+              b.classList.remove('active');
+            });
+            btn.classList.add('active');
+          });
+        });
+
+        // Submit
+        document.getElementById('submit-btn').addEventListener('click', function () {
+          var amount = document.getElementById('amount-input').value;
+          var category = document.querySelector('.category-item.selected');
+          var categoryName = category ? category.querySelector('span').textContent : '';
+
+          if (!amount || parseFloat(amount) <= 0) {
+            Toast.warning('请输入有效金额');
+            return;
+          }
+
+          Toast.success('已添加 ' + categoryName + ' ¥' + amount);
+          document.getElementById('amount-input').value = '';
+        });
+      }
+
+      // 启动
+      init().catch(function (err) {
+        console.error('初始化失败:', err);
+      });
+    })();
   </script>
 </body>
 </html>

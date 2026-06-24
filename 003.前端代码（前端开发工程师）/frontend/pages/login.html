@@ -269,7 +269,7 @@
       </div>
 
       <!-- Login Form -->
-      <form id="login-form" onsubmit="return handleLogin(event)">
+      <form id="login-form">
         <div class="form-row">
           <div class="input-group">
             <label class="input-label" for="username">用户名</label>
@@ -337,44 +337,130 @@
     </div>
   </div>
 
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/auth.js"></script>
   <script>
-    function handleLogin(event) {
-      event.preventDefault();
+    (function () {
+      'use strict';
 
-      const username = document.getElementById('username');
-      const password = document.getElementById('password');
-      const usernameError = document.getElementById('username-error');
-      const passwordError = document.getElementById('password-error');
+      const form = document.getElementById('login-form');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const btnText = submitBtn.querySelector('span:first-child');
+      const btnIcon = submitBtn.querySelector('.material-symbols-outlined');
+      const originalBtnText = btnText.textContent;
 
-      // Reset errors
-      usernameError.textContent = '';
-      passwordError.textContent = '';
-      username.classList.remove('input-error');
-      password.classList.remove('input-error');
+      // 如果已登录，直接跳转首页
+      if (api.getToken()) {
+        auth.checkAuth().then(function (ok) {
+          if (ok) window.location.replace('../index.html');
+        });
+      }
 
-      // Validate
-      if (!username.value.trim()) {
-        usernameError.textContent = '请输入用户名';
-        username.classList.add('input-error');
-        username.classList.add('shake');
-        setTimeout(() => username.classList.remove('shake'), 300);
+      /**
+       * 显示字段错误
+       */
+      function showFieldError(fieldId, message) {
+        var input = document.getElementById(fieldId);
+        var errorEl = document.getElementById(fieldId + '-error');
+        errorEl.textContent = message;
+        input.classList.add('input-error');
+        input.classList.add('shake');
+        setTimeout(function () { input.classList.remove('shake'); }, 300);
+      }
+
+      /**
+       * 清除所有字段错误
+       */
+      function clearErrors() {
+        ['username', 'password'].forEach(function (id) {
+          document.getElementById(id + '-error').textContent = '';
+          document.getElementById(id).classList.remove('input-error');
+        });
+      }
+
+      /**
+       * 设置按钮加载状态
+       */
+      function setLoading(loading) {
+        if (loading) {
+          submitBtn.disabled = true;
+          btnText.textContent = '登录中...';
+          btnIcon.textContent = 'hourglass_top';
+        } else {
+          submitBtn.disabled = false;
+          btnText.textContent = originalBtnText;
+          btnIcon.textContent = 'login';
+        }
+      }
+
+      /**
+       * 处理登录
+       */
+      async function handleLogin(event) {
+        event.preventDefault();
+
+        var username = document.getElementById('username').value.trim();
+        var password = document.getElementById('password').value;
+        var rememberMe = document.getElementById('remember-me').checked;
+
+        // 清除旧错误
+        clearErrors();
+
+        // 前端校验
+        var hasError = false;
+
+        if (!username) {
+          showFieldError('username', '请输入用户名');
+          hasError = true;
+        }
+
+        if (!password) {
+          showFieldError('password', '请输入密码');
+          hasError = true;
+        }
+
+        if (hasError) return false;
+
+        // 调用后端 API
+        setLoading(true);
+
+        try {
+          await auth.login({ username: username, password: password, rememberMe: rememberMe });
+          Toast.success('登录成功，正在跳转...', 1500);
+          setTimeout(function () {
+            window.location.href = '../index.html';
+          }, 800);
+        } catch (err) {
+          var msg = err.message || '登录失败，请重试';
+
+          // 根据错误码做特殊处理
+          if (err.code === 423) {
+            // 账号被锁定
+            Toast.warning(msg, 5000);
+          } else if (err.code === 403) {
+            // 账号被禁用
+            Toast.error(msg, 5000);
+          } else if (err.code === 422 && err.errors) {
+            // 字段校验错误 - 显示在对应字段下
+            err.errors.forEach(function (e) {
+              if (e.field === 'username') showFieldError('username', e.message);
+              if (e.field === 'password') showFieldError('password', e.message);
+            });
+          } else {
+            // 通用错误
+            Toast.error(msg);
+          }
+        } finally {
+          setLoading(false);
+        }
+
         return false;
       }
 
-      if (!password.value) {
-        passwordError.textContent = '请输入密码';
-        password.classList.add('input-error');
-        password.classList.add('shake');
-        setTimeout(() => password.classList.remove('shake'), 300);
-        return false;
-      }
-
-      // Simulate login success (in real app, this would call an API)
-      // For demo, accept any non-empty credentials
-      alert('登录成功！正在跳转到首页...');
-      window.location.href = '../index.html';
-      return false;
-    }
+      // 绑定表单提交
+      form.addEventListener('submit', handleLogin);
+    })();
   </script>
 </body>
 </html>
