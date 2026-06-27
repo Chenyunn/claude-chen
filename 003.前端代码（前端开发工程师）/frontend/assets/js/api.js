@@ -18,8 +18,8 @@
 
   const CONFIG = {
     // API 基础地址 — 与后端同源时使用相对路径，跨域时改为完整 URL
-    // 开发环境：后端默认运行在 localhost:3000
-    baseURL: 'http://localhost:3000/api',
+    // Java后端运行在 localhost:8080
+    baseURL: 'http://localhost:8081/api',
     // 请求超时（毫秒）
     timeout: 15000,
   };

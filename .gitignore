@@ -11,7 +11,9 @@ coverage/
 .env
 .env.*
 !.env.example
-.claude/
+.claude/*
+# 但保留项目级 skills，使其随仓库共享
+!.claude/skills/
 
 # Logs
 *.log
@@ -26,3 +28,7 @@ Thumbs.db
 
 # Temporary/generated workspace
 TMP.可删除/
+
+# 周报文档：永不存档、永不提交
+000.文档纪要/
+**/周报-*.md

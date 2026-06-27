@@ -10,6 +10,50 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/design-system.css">
   <link rel="stylesheet" href="profile.css">
+  <style>
+    /* 分类管理样式 */
+    .cat-section { margin-bottom: var(--space-xl); }
+    .cat-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-lg); }
+    .cat-header .section-title { margin-bottom: 0; }
+    .btn-add-cat { display: inline-flex; align-items: center; gap: 4px; padding: 8px 16px; border-radius: var(--radius-full); background: var(--color-primary-container); color: var(--color-on-primary-container); border: none; font-family: inherit; font-size: var(--font-size-body-sm); font-weight: var(--font-weight-semibold); cursor: pointer; transition: all var(--transition-fast); }
+    .btn-add-cat:hover { filter: brightness(1.05); }
+    .cat-type-tabs { display: flex; gap: var(--space-sm); margin-bottom: var(--space-md); }
+    .cat-type-tab { padding: 6px 16px; border-radius: var(--radius-full); border: 1px solid var(--color-outline-variant); background: var(--color-surface-container-lowest); cursor: pointer; font-size: var(--font-size-body-sm); font-weight: var(--font-weight-semibold); transition: all var(--transition-fast); }
+    .cat-type-tab.active { background: var(--color-primary-container); color: var(--color-on-primary-container); border-color: transparent; }
+    .cat-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+    .cat-item { display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md); background: var(--color-surface-container-lowest); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
+    .cat-icon-box { width: 44px; height: 44px; border-radius: 50%; background: var(--color-pale-pink-white); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+    .cat-info { flex: 1; min-width: 0; }
+    .cat-name { font-weight: var(--font-weight-semibold); }
+    .cat-meta { font-size: var(--font-size-label-md); color: var(--color-on-surface-variant); }
+    .cat-badge { font-size: 10px; padding: 2px 8px; border-radius: var(--radius-full); background: var(--color-surface-container-high); color: var(--color-on-surface-variant); }
+    .cat-actions { display: flex; gap: var(--space-xs); }
+    .cat-action-btn { width: 32px; height: 32px; border-radius: 50%; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all var(--transition-fast); color: var(--color-on-surface-variant); }
+    .cat-action-btn:hover { background: var(--color-surface-container-high); }
+    .cat-action-btn.delete:hover { background: rgba(186,26,26,0.1); color: var(--color-error); }
+    .cat-action-btn .material-symbols-outlined { font-size: 18px; }
+    .cat-empty { text-align: center; padding: var(--space-xl); color: var(--color-on-surface-variant); }
+    /* Emoji 选择器 */
+    .emoji-picker { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; max-height: 160px; overflow-y: auto; border: 1px solid var(--color-outline-variant); border-radius: var(--radius-lg); padding: var(--space-sm); background: var(--color-surface-container-low); }
+    .emoji-option { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 20px; border: 2px solid transparent; border-radius: var(--radius-md); cursor: pointer; background: transparent; transition: all var(--transition-fast); }
+    .emoji-option:hover { background: var(--color-primary-container); }
+    .emoji-option.selected { border-color: var(--color-primary); background: var(--color-primary-container); }
+    .emoji-preview { font-size: 32px; text-align: center; padding: var(--space-sm); background: var(--color-pale-pink-white); border-radius: var(--radius-lg); min-height: 48px; display: flex; align-items: center; justify-content: center; }
+    /* 弹窗 */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 1000; display: flex; align-items: center; justify-content: center; animation: fadeIn 0.2s; }
+    .modal-card { width: 90%; max-width: 420px; background: var(--color-surface-container-lowest); border-radius: var(--radius-xxl); padding: var(--space-xl); box-shadow: 0 12px 48px rgba(0,0,0,0.15); }
+    .modal-title { font-size: var(--font-size-h3); font-weight: var(--font-weight-bold); margin-bottom: var(--space-lg); }
+    .modal-field { margin-bottom: var(--space-md); }
+    .modal-field label { display: block; font-size: var(--font-size-label-md); font-weight: var(--font-weight-semibold); color: var(--color-on-surface-variant); margin-bottom: var(--space-xs); }
+    .modal-field input, .modal-field select { width: 100%; padding: 10px var(--space-md); border: 1px solid var(--color-outline-variant); border-radius: var(--radius-lg); font-family: inherit; font-size: var(--font-size-body-md); }
+    .modal-field input:focus, .modal-field select:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(134,78,90,0.15); }
+    .modal-btns { display: flex; gap: var(--space-md); margin-top: var(--space-lg); }
+    .modal-btns button { flex: 1; padding: 12px; border-radius: var(--radius-full); border: none; font-family: inherit; font-size: var(--font-size-body-md); font-weight: var(--font-weight-semibold); cursor: pointer; transition: all var(--transition-fast); }
+    .modal-cancel { background: var(--color-surface-container-high); color: var(--color-on-surface); }
+    .modal-confirm { background: var(--color-primary-container); color: var(--color-on-primary-container); }
+    .modal-confirm:hover { filter: brightness(1.05); }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  </style>
 </head>
 <body>
   <div class="app-layout">
@@ -133,6 +177,26 @@
         </div>
       </section>
 
+      <!-- Category Management Section -->
+      <section class="cat-section">
+        <div class="cat-header">
+          <h3 class="section-title">
+            <span class="material-symbols-outlined">category</span>
+            分类管理
+          </h3>
+          <button class="btn-add-cat" id="btn-add-cat">
+            <span class="material-symbols-outlined" style="font-size:16px;">add</span>添加分类
+          </button>
+        </div>
+        <div class="cat-type-tabs" id="cat-type-tabs">
+          <button class="cat-type-tab active" data-type="expense">支出分类</button>
+          <button class="cat-type-tab" data-type="income">收入分类</button>
+        </div>
+        <div class="cat-list" id="cat-list">
+          <div class="cat-empty">加载中...</div>
+        </div>
+      </section>
+
       <!-- Settings Lists -->
       <section class="settings-section">
         <!-- Security Settings -->
@@ -228,5 +292,221 @@
       </a>
     </nav>
   </div>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    var catType = 'expense';
+    var allCats = { expense: [], income: [] };
+
+    // ---- 分类管理 ----
+
+    async function loadCategories() {
+      try {
+        var result = await api.get('/categories', { type: catType });
+        allCats[catType] = result.data;
+        renderCategories();
+      } catch (e) {
+        Toast.error('加载分类失败');
+      }
+    }
+
+    function renderCategories() {
+      var list = allCats[catType];
+      var container = document.getElementById('cat-list');
+      if (!list.length) {
+        container.innerHTML = '<div class="cat-empty">暂无分类，点击上方按钮添加</div>';
+        return;
+      }
+      container.innerHTML = list.map(function (c) {
+        var sys = c.is_system === 1 || c.is_system === true;
+        return '<div class="cat-item" data-id="' + c.id + '">' +
+          '<div class="cat-icon-box">' + c.icon + '</div>' +
+          '<div class="cat-info">' +
+            '<span class="cat-name">' + c.name + '</span>' +
+            '<span class="cat-meta">' + c.code + '</span>' +
+          '</div>' +
+          (sys ? '<span class="cat-badge">系统</span>' : '') +
+          (!sys ?
+            '<div class="cat-actions">' +
+              '<button type="button" class="cat-action-btn cat-edit-btn" title="编辑" data-id="' + c.id + '"><span class="material-symbols-outlined">edit</span></button>' +
+              '<button type="button" class="cat-action-btn cat-del-btn" title="删除" data-id="' + c.id + '"><span class="material-symbols-outlined">delete</span></button>' +
+            '</div>' : '') +
+        '</div>';
+      }).join('');
+    }
+
+    // 类型切换
+    document.getElementById('cat-type-tabs').addEventListener('click', function (e) {
+      var tab = e.target.closest('.cat-type-tab');
+      if (!tab) return;
+      document.querySelectorAll('.cat-type-tab').forEach(function (t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      catType = tab.dataset.type;
+      if (allCats[catType].length) { renderCategories(); }
+      else { loadCategories(); }
+    });
+
+    // 编辑 / 删除事件委托
+    document.getElementById('cat-list').addEventListener('click', function (e) {
+      var editBtn = e.target.closest('.cat-edit-btn');
+      var delBtn = e.target.closest('.cat-del-btn');
+
+      if (editBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        var id = parseInt(editBtn.dataset.id, 10);
+        var cat = allCats[catType].find(function (c) { return c.id === id; });
+        if (cat) showModal(cat);
+        return;
+      }
+
+      if (delBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        var delId = parseInt(delBtn.dataset.id, 10);
+        showConfirmDelete(delId);
+        return;
+      }
+    });
+
+    // 确认删除弹窗（替代 confirm()）
+    function showConfirmDelete(id) {
+      var cat = allCats[catType].find(function (c) { return c.id === id; });
+      if (!cat) return;
+      var overlay = document.createElement('div');
+      overlay.className = 'modal-overlay';
+      overlay.innerHTML =
+        '<div class="modal-card">' +
+          '<h3 class="modal-title">确认删除</h3>' +
+          '<p style="margin-bottom:var(--space-lg);color:var(--color-on-surface-variant);">确定要删除分类 <strong>' + cat.icon + ' ' + cat.name + '</strong> 吗？此操作不可恢复。</p>' +
+          '<div class="modal-btns">' +
+            '<button type="button" class="modal-cancel" id="del-cancel">取消</button>' +
+            '<button type="button" class="modal-confirm" id="del-confirm" style="background:#FFCDD2;color:#BA1A1A;">删除</button>' +
+          '</div>' +
+        '</div>';
+      document.body.appendChild(overlay);
+      overlay.querySelector('#del-cancel').addEventListener('click', function () { overlay.remove(); });
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) overlay.remove(); });
+      overlay.querySelector('#del-confirm').addEventListener('click', async function () {
+        overlay.remove();
+        await deleteCategory(id);
+      });
+    }
+
+    // 添加分类按钮
+    document.getElementById('btn-add-cat').addEventListener('click', function () {
+      showModal(null);
+    });
+
+    // Emoji 列表
+    var EMOJIS = ['🍜','🚗','🛒','🎮','🏠','📱','💊','📦','💰','✨','🧋','☕','🍰','🍔','🍕','🥗','🍖','🍹','🍺','🥐','🎪','🎬','🎤','🎨','✈️','🚆','🚇','🛴','⛽','🏥','💊','💉','🩺','📚','🎓','💻','🖥️','📱','💡','🔧','🛠️','👔','👗','🥿','💎','🧧','💝','🎁','🎈','🐶','🐱','🌿','🌺','🎵','🏀','⚽','🎾','🏋️','🧘','🛁','🧹','🔑','🔒','📌','📎','🗂️','📊','📈','🧮','💳','🏦','💱','🏷️','🛍️','🧾','♻️','🆗','🆕','🆘','⭐','❤️','🔥','💡'];
+
+    // 弹窗
+    function showModal(existing) {
+      var isEdit = !!existing;
+      var selectedIcon = isEdit ? existing.icon : '📦';
+
+      var emojiHtml = EMOJIS.map(function (e) {
+        return '<button type="button" class="emoji-option' + (e === selectedIcon ? ' selected' : '') + '" data-emoji="' + e + '">' + e + '</button>';
+      }).join('');
+
+      var overlay = document.createElement('div');
+      overlay.className = 'modal-overlay';
+      overlay.innerHTML =
+        '<div class="modal-card">' +
+          '<h3 class="modal-title">' + (isEdit ? '编辑分类' : '添加分类') + '</h3>' +
+          '<div class="modal-field"><label>分类名称</label><input id="modal-name" type="text" maxlength="20" placeholder="如：奶茶" value="' + (isEdit ? existing.name : '') + '"></div>' +
+          (!isEdit ? '<div class="modal-field"><label>分类编码（英文）</label><input id="modal-code" type="text" maxlength="20" placeholder="如：milk_tea"></div>' : '') +
+          '<div class="modal-field">' +
+            '<label>选择图标</label>' +
+            '<div class="emoji-preview" id="emoji-preview">' + selectedIcon + '</div>' +
+            '<input type="hidden" id="modal-icon" value="' + selectedIcon + '">' +
+            '<div class="emoji-picker" id="emoji-picker">' + emojiHtml + '</div>' +
+          '</div>' +
+          '<div class="modal-btns">' +
+            '<button class="modal-cancel" id="modal-cancel">取消</button>' +
+            '<button class="modal-confirm" id="modal-confirm">' + (isEdit ? '保存' : '添加') + '</button>' +
+          '</div>' +
+        '</div>';
+
+      document.body.appendChild(overlay);
+
+      // Emoji 选择事件
+      overlay.querySelector('#emoji-picker').addEventListener('click', function (e) {
+        var btn = e.target.closest('.emoji-option');
+        if (!btn) return;
+        overlay.querySelectorAll('.emoji-option').forEach(function (b) { b.classList.remove('selected'); });
+        btn.classList.add('selected');
+        selectedIcon = btn.dataset.emoji;
+        document.getElementById('modal-icon').value = selectedIcon;
+        document.getElementById('emoji-preview').textContent = selectedIcon;
+      });
+
+      overlay.querySelector('#modal-cancel').addEventListener('click', function () { overlay.remove(); });
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) overlay.remove(); });
+
+      overlay.querySelector('#modal-confirm').addEventListener('click', async function () {
+        var name = document.getElementById('modal-name').value.trim();
+        var code = isEdit ? '' : (document.getElementById('modal-code').value.trim());
+        var icon = document.getElementById('modal-icon').value || '📦';
+
+        if (!name) { Toast.warning('请输入分类名称'); return; }
+        if (!isEdit && !code) { Toast.warning('请输入分类编码'); return; }
+        if (!isEdit && !/^[a-zA-Z0-9_]+$/.test(code)) { Toast.warning('编码仅支持英文字母、数字和下划线'); return; }
+
+        try {
+          if (isEdit) {
+            await api.patch('/categories/' + existing.id, { name: name, icon: icon });
+            Toast.success('修改成功');
+          } else {
+            await api.post('/categories', { code: code, name: name, icon: icon, type: catType });
+            Toast.success('添加成功');
+          }
+          overlay.remove();
+          await loadCategories();
+        } catch (e) {
+          Toast.error(e.message || '操作失败');
+        }
+      });
+    }
+
+    async function deleteCategory(id) {
+      try {
+        await api.del('/categories/' + id);
+        Toast.success('删除成功');
+        await loadCategories();
+      } catch (e) {
+        Toast.error(e.message || '删除失败');
+      }
+    }
+
+    // 退出登录
+    document.querySelector('.logout-btn').addEventListener('click', async function (e) {
+      e.preventDefault();
+      try { await auth.logout(); } catch (_) {}
+      api.removeToken();
+      window.location.replace('login.html');
+    });
+
+    document.querySelector('.btn-outline-full').addEventListener('click', async function (e) {
+      e.preventDefault();
+      try { await auth.logout(); } catch (_) {}
+      api.removeToken();
+      window.location.replace('login.html');
+    });
+
+    // 初始化
+    (async function init() {
+      if (!api.getToken()) { window.location.replace('login.html'); return; }
+      try { await auth.fetchUser(); } catch { api.removeToken(); window.location.replace('login.html'); return; }
+      await loadCategories();
+    })();
+  })();
+  </script>
 </body>
 </html>

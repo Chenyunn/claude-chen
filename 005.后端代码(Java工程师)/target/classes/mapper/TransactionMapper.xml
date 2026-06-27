@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.financemanager.mapper.TransactionMapper">
+
+    <resultMap id="BaseResultMap" type="com.financemanager.entity.Transaction">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="type" property="type"/>
+        <result column="amount" property="amount"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="subcategory_id" property="subcategoryId"/>
+        <result column="payment_account_id" property="paymentAccountId"/>
+        <result column="transaction_date" property="transactionDate"/>
+        <result column="transaction_time" property="transactionTime"/>
+        <result column="occurred_at" property="occurredAt"/>
+        <result column="merchant" property="merchant"/>
+        <result column="title" property="title"/>
+        <result column="note" property="note"/>
+        <result column="source" property="source"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+        <result column="deleted_at" property="deletedAt"/>
+    </resultMap>
+
+    <sql id="Base_Where">
+        <where>
+            t.user_id = #{userId} AND t.deleted_at IS NULL
+            <if test="type != null">AND t.type = #{type}</if>
+            <if test="categoryId != null">AND t.category_id = #{categoryId}</if>
+            <if test="startDate != null">AND t.transaction_date &gt;= #{startDate}</if>
+            <if test="endDate != null">AND t.transaction_date &lt;= #{endDate}</if>
+        </where>
+    </sql>
+
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT * FROM transactions WHERE id = #{id} AND deleted_at IS NULL
+    </select>
+
+    <select id="findByUserAndId" resultMap="BaseResultMap">
+        SELECT * FROM transactions WHERE id = #{id} AND user_id = #{userId} AND deleted_at IS NULL
+    </select>
+
+    <select id="findByUserPage" resultMap="BaseResultMap">
+        SELECT * FROM transactions t
+        <include refid="Base_Where"/>
+        ORDER BY t.occurred_at DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <select id="countByUser" resultType="long">
+        SELECT COUNT(*) FROM transactions t
+        <include refid="Base_Where"/>
+    </select>
+
+    <select id="findByUserAndDateRange" resultMap="BaseResultMap">
+        SELECT * FROM transactions
+        WHERE user_id = #{userId} AND deleted_at IS NULL
+          AND transaction_date BETWEEN #{startDate} AND #{endDate}
+        ORDER BY occurred_at DESC
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO transactions (user_id, type, amount, category_id, subcategory_id,
+                                   payment_account_id, transaction_date, transaction_time,
+                                   occurred_at, merchant, title, note, source)
+        VALUES (#{userId}, #{type}, #{amount}, #{categoryId}, #{subcategoryId},
+                #{paymentAccountId}, #{transactionDate}, #{transactionTime},
+                #{occurredAt}, #{merchant}, #{title}, #{note}, #{source})
+    </insert>
+
+    <update id="update">
+        UPDATE transactions
+        <set>
+            <if test="type != null">type = #{type},</if>
+            <if test="amount != null">amount = #{amount},</if>
+            <if test="categoryId != null">category_id = #{categoryId},</if>
+            <if test="subcategoryId != null">subcategory_id = #{subcategoryId},</if>
+            <if test="paymentAccountId != null">payment_account_id = #{paymentAccountId},</if>
+            <if test="transactionDate != null">transaction_date = #{transactionDate},</if>
+            <if test="transactionTime != null">transaction_time = #{transactionTime},</if>
+            <if test="occurredAt != null">occurred_at = #{occurredAt},</if>
+            <if test="merchant != null">merchant = #{merchant},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="note != null">note = #{note},</if>
+            updated_at = NOW()
+        </set>
+        WHERE id = #{id} AND user_id = #{userId} AND deleted_at IS NULL
+    </update>
+
+    <update id="deleteByUserAndId">
+        UPDATE transactions SET deleted_at = NOW() WHERE id = #{id} AND user_id = #{userId} AND deleted_at IS NULL
+    </update>
+
+    <select id="getMonthlySummary" resultType="com.financemanager.mapper.TransactionMapper$MonthlySummary">
+        SELECT
+            SUM(CASE WHEN type = 'expense' THEN amount ELSE 0 END) AS expenseAmount,
+            SUM(CASE WHEN type = 'income' THEN amount ELSE 0 END) AS incomeAmount,
+            COUNT(*) AS transactionCount
+        FROM transactions
+        WHERE user_id = #{userId} AND deleted_at IS NULL
+          AND transaction_date &gt;= #{monthStart}
+          AND transaction_date &lt; DATE_ADD(#{monthStart}, INTERVAL 1 MONTH)
+        GROUP BY user_id
+    </select>
+
+    <select id="getMonthlyCategorySummary" resultType="com.financemanager.mapper.TransactionMapper$CategorySummary">
+        SELECT
+            t.category_id AS categoryId,
+            c.code AS categoryCode,
+            c.name AS categoryName,
+            c.icon AS categoryIcon,
+            c.color AS categoryColor,
+            t.type AS type,
+            SUM(t.amount) AS totalAmount,
+            COUNT(*) AS transactionCount,
+            ROUND(AVG(t.amount), 2) AS avgAmount
+        FROM transactions t
+        JOIN categories c ON c.id = t.category_id
+        WHERE t.user_id = #{userId} AND t.deleted_at IS NULL
+          AND t.transaction_date &gt;= #{monthStart}
+          AND t.transaction_date &lt; DATE_ADD(#{monthStart}, INTERVAL 1 MONTH)
+          <if test="type != null">AND t.type = #{type}</if>
+        GROUP BY t.category_id, t.type, c.code, c.name, c.icon, c.color
+        ORDER BY totalAmount DESC
+    </select>
+
+</mapper>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.financemanager.mapper.CategoryMapper">
+
+    <resultMap id="BaseResultMap" type="com.financemanager.entity.Category">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="code" property="code"/>
+        <result column="name" property="name"/>
+        <result column="icon" property="icon"/>
+        <result column="color" property="color"/>
+        <result column="type" property="type"/>
+        <result column="sort_order" property="sortOrder"/>
+        <result column="is_system" property="isSystem"/>
+        <result column="is_active" property="isActive"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+        <result column="deleted_at" property="deletedAt"/>
+    </resultMap>
+
+    <sql id="Base_Where">
+        <where>
+            deleted_at IS NULL AND is_active = TRUE
+            <if test="userId != null">
+                AND (user_id = #{userId} OR user_id IS NULL)
+            </if>
+            <if test="type != null">
+                AND type = #{type}
+            </if>
+        </where>
+    </sql>
+
+    <select id="findAllByUser" resultMap="BaseResultMap">
+        SELECT * FROM categories
+        <include refid="Base_Where"/>
+        ORDER BY sort_order ASC
+    </select>
+
+    <select id="findAllSystemCategories" resultMap="BaseResultMap">
+        SELECT * FROM categories
+        WHERE user_id IS NULL AND deleted_at IS NULL AND is_active = TRUE
+        ORDER BY sort_order ASC
+    </select>
+
+    <select id="findById" resultMap="BaseResultMap">
+        SELECT * FROM categories
+        WHERE id = #{id} AND deleted_at IS NULL
+    </select>
+
+    <select id="countByUserAndCode" resultType="int">
+        SELECT COUNT(*) FROM categories
+        WHERE user_id = #{userId} AND code = #{code} AND deleted_at IS NULL
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO categories (user_id, code, name, icon, color, type,
+                                 sort_order, is_system, is_active)
+        VALUES (#{userId}, #{code}, #{name}, #{icon}, #{color}, #{type},
+                #{sortOrder}, #{isSystem}, #{isActive})
+    </insert>
+
+    <update id="update">
+        UPDATE categories
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="icon != null">icon = #{icon},</if>
+            <if test="color != null">color = #{color},</if>
+            <if test="sortOrder != null">sort_order = #{sortOrder},</if>
+            <if test="isActive != null">is_active = #{isActive},</if>
+            updated_at = NOW()
+        </set>
+        WHERE id = #{id} AND deleted_at IS NULL
+    </update>
+
+    <update id="deleteById">
+        UPDATE categories SET deleted_at = NOW() WHERE id = #{id} AND deleted_at IS NULL
+    </update>
+
+</mapper>

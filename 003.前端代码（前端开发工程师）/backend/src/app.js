@@ -5,6 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const config = require('./config');
 const authRoutes = require('./routes/auth.routes');
+const categoryRoutes = require('./routes/category.routes');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -52,14 +53,7 @@ app.get('/api/health', (_req, res) => {
 
 // ---------- 路由 ----------
 app.use('/api/auth', authRoutes);
-
-// 未来会添加更多路由：
-// app.use('/api/users', userRoutes);
-// app.use('/api/categories', categoryRoutes);
-// app.use('/api/transactions', transactionRoutes);
-// app.use('/api/statistics', statisticsRoutes);
-// app.use('/api/payment-accounts', paymentAccountRoutes);
-// app.use('/api/export-tasks', exportTaskRoutes);
+app.use('/api/categories', categoryRoutes);
 
 // ---------- 404 ----------
 app.use((_req, res) => {
