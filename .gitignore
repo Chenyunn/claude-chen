@@ -14,6 +14,8 @@ coverage/
 .claude/*
 # 但保留项目级 skills，使其随仓库共享
 !.claude/skills/
+# .agents 为 skill 重复副本，不纳入仓库
+.agents/
 
 # Logs
 *.log
