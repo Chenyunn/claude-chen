@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <radialGradient id="glowE" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6B8A" stop-opacity="0.26" />
+      <stop offset="100%" stop-color="#FF6B8A" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glowE2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD479" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#FFD479" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="bigGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF6B8A" />
+      <stop offset="100%" stop-color="#FFD479" />
+    </linearGradient>
+  </defs>
+
+  <g id="background">
+    <rect x="0" y="0" width="1280" height="720" fill="#1A1320" />
+    <circle cx="1100" cy="80" r="320" fill="url(#glowE)" />
+    <circle cx="120" cy="680" r="260" fill="url(#glowE2)" />
+  </g>
+
+  <g id="header">
+    <text x="80" y="80" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="18" font-weight="bold" fill="#FF6B8A" letter-spacing="2">市场 · 路线图 · 诉求</text>
+    <text x="80" y="130" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="40" font-weight="bold" fill="#EDE6EC">高频刚需 + 清晰路线，<tspan fill="url(#bigGrad)">期待与你同行</tspan></text>
+  </g>
+
+  <g id="market-1">
+    <path fill="#241A2E" stroke="#3A2C44" stroke-width="1" d="M94,158 H426 A14,14 0 0 1 440,172 V240 A14,14 0 0 1 426,254 H94 A14,14 0 0 1 80,240 V172 A14,14 0 0 1 94,158 Z" />
+    
+  <g transform="translate(104, 182) scale(1.25)" fill="#FF6B8A">
+    <path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+    <path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z" />
+  </g>
+    <text x="146" y="206" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="34" font-weight="bold" fill="url(#bigGrad)">2.6亿</text>
+    <text x="104" y="238" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#A99FB0">移动支付年轻用户基数（行业测算）</text>
+  </g>
+
+  <g id="market-2">
+    <path fill="#241A2E" stroke="#3A2C44" stroke-width="1" d="M474,158 H806 A14,14 0 0 1 820,172 V240 A14,14 0 0 1 806,254 H474 A14,14 0 0 1 460,240 V172 A14,14 0 0 1 474,158 Z" />
+    
+  <g transform="translate(484, 182) scale(1.25)" fill="#FF8C6B">
+    <path d="M8 12a1 1 0 0 1 1 1v4a1 1 0 0 1 -2 0v-4a1 1 0 0 1 1 -1" />
+    <path d="M12 12a1 1 0 0 1 1 1v4a1 1 0 0 1 -2 0v-4a1 1 0 0 1 1 -1" />
+    <path d="M16 12a1 1 0 0 1 1 1v4a1 1 0 0 1 -2 0v-4a1 1 0 0 1 1 -1" />
+    <path d="M16 2a1 1 0 0 1 .993 .883l.007 .117v1h1a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -2.995l.176 -.005h1v-1a1 1 0 0 1 1.993 -.117l.007 .117v1h6v-1a1 1 0 0 1 1 -1m3 7h-14v9.625c0 .705 .386 1.286 .883 1.366l.117 .009h12c.513 0 .936 -.53 .993 -1.215l.007 -.16z" />
+  </g>
+    <text x="526" y="206" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="30" font-weight="bold" fill="#EDE6EC">高频刚需</text>
+    <text x="484" y="238" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#A99FB0">每天 2+ 次的使用场景，强粘性</text>
+  </g>
+
+  <g id="market-3">
+    <path fill="#241A2E" stroke="#3A2C44" stroke-width="1" d="M854,158 H1186 A14,14 0 0 1 1200,172 V240 A14,14 0 0 1 1186,254 H854 A14,14 0 0 1 840,240 V172 A14,14 0 0 1 854,158 Z" />
+    
+  <g transform="translate(864, 182) scale(1.25)" fill="#FFD479">
+    <path d="M19 19h-14c-.5 0 -.9 -.3 -1 -.8l-2 -10c0 -.4 .1 -.8 .5 -1.1c.4 -.2 .8 -.2 1.1 0l4.1 3.3l3.4 -5.1c.4 -.6 1.3 -.6 1.7 0l3.4 5.1l4.1 -3.3c.3 -.3 .8 -.3 1.1 0c.4 .2 .5 .6 .5 1.1l-2 10c0 .5 -.5 .8 -1 .8z" />
+  </g>
+    <text x="906" y="206" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="30" font-weight="bold" fill="#EDE6EC">差异化</text>
+    <text x="864" y="238" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#A99FB0">最轻、无广告，避开巨头正面战场</text>
+  </g>
+
+  <g id="road-1">
+    <path fill="#241A2E" stroke="#3A2C44" stroke-width="1" d="M96,282 H424 A16,16 0 0 1 440,298 V414 A16,16 0 0 1 424,430 H96 A16,16 0 0 1 80,414 V298 A16,16 0 0 1 96,282 Z" />
+    
+  <g transform="translate(106, 306) scale(1.16667)" fill="#7CE7C0">
+    <path d="M6 3a7 7 0 0 1 6.95 6.155a6.97 6.97 0 0 1 5.05 -2.155h3a1 1 0 0 1 1 1v1a7 7 0 0 1 -7 7h-2v4a1 1 0 0 1 -2 0v-7h-2a7 7 0 0 1 -7 -7v-2a1 1 0 0 1 1 -1z" />
+  </g>
+    <text x="144" y="328" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" font-weight="bold" fill="#FF6B8A" letter-spacing="1">PHASE 1 · 0–3 月</text>
+    <text x="106" y="372" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="26" font-weight="bold" fill="#EDE6EC">种子期</text>
+    <text fill="#A99FB0" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" x="106" y="406">核心打磨 + 50–200 用户内测，</text><text fill="#A99FB0" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" x="106" y="430">跑通激活与首笔记账</text></g>
+
+  <g id="road-2">
+    <path fill="#2E2238" stroke="#FF6B8A" stroke-opacity="0.4" stroke-width="1.5" d="M476,282 H804 A16,16 0 0 1 820,298 V414 A16,16 0 0 1 804,430 H476 A16,16 0 0 1 460,414 V298 A16,16 0 0 1 476,282 Z" />
+    
+  <g transform="translate(486, 306) scale(1.16667)" fill="#FF8C6B">
+    <path d="M15.22 9.375a1 1 0 0 1 1.393 -.165l.094 .083l4 4a1 1 0 0 1 .284 .576l.009 .131v5a1 1 0 0 1 -.883 .993l-.117 .007h-16.022l-.11 -.009l-.11 -.02l-.107 -.034l-.105 -.046l-.1 -.059l-.094 -.07l-.06 -.055l-.072 -.082l-.064 -.089l-.054 -.096l-.016 -.035l-.04 -.103l-.027 -.106l-.015 -.108l-.004 -.11l.009 -.11l.019 -.105c.01 -.04 .022 -.077 .035 -.112l.046 -.105l.059 -.1l4 -6a1 1 0 0 1 1.165 -.39l.114 .05l3.277 1.638l3.495 -4.369z" />
+    <path d="M15.232 3.36a1 1 0 0 1 1.382 -.15l.093 .083l4 4a1 1 0 0 1 -1.32 1.497l-.094 -.083l-3.226 -3.225l-4.299 5.158a1 1 0 0 1 -1.1 .303l-.115 -.049l-3.254 -1.626l-2.499 3.332a1 1 0 0 1 -1.295 .269l-.105 -.069a1 1 0 0 1 -.269 -1.295l.069 -.105l3 -4a1 1 0 0 1 1.137 -.341l.11 .047l3.291 1.645l4.494 -5.391z" />
+  </g>
+    <text x="524" y="328" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" font-weight="bold" fill="#FF6B8A" letter-spacing="1">PHASE 2 · 3–9 月</text>
+    <text x="486" y="372" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="26" font-weight="bold" fill="#EDE6EC">增长期</text>
+    <text fill="#A99FB0" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" x="486" y="406">云同步 + 内容矩阵起量，</text><text fill="#A99FB0" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" x="486" y="430">目标 D7 留存 &gt;20%</text></g>
+
+  <g id="road-3">
+    <path fill="#241A2E" stroke="#3A2C44" stroke-width="1" d="M856,282 H1184 A16,16 0 0 1 1200,298 V414 A16,16 0 0 1 1184,430 H856 A16,16 0 0 1 840,414 V298 A16,16 0 0 1 856,282 Z" />
+    
+  <g transform="translate(866, 306) scale(1.16667)" fill="#FFD479">
+    <path d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336zm-5 2.66c-2.052 0 -3.768 1.449 -4.549 3.5h-.451a1 1 0 0 0 -.117 1.993l.134 .007a7.298 7.298 0 0 0 0 1h-.017a1 1 0 0 0 0 2h.452c.78 2.053 2.496 3.5 4.548 3.5c1.141 0 2.217 -.457 3.084 -1.27a1 1 0 0 0 -1.368 -1.46c-.509 .478 -1.102 .73 -1.716 .73c-.922 0 -1.776 -.578 -2.335 -1.499l1.335 -.001a1 1 0 0 0 0 -2h-1.977a5.342 5.342 0 0 1 0 -1h1.977a1 1 0 0 0 0 -2h-1.336c.56 -.921 1.414 -1.5 2.336 -1.5c.615 0 1.208 .252 1.717 .73a1 1 0 0 0 1.368 -1.46c-.867 -.812 -1.943 -1.27 -3.085 -1.27z" />
+  </g>
+    <text x="904" y="328" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" font-weight="bold" fill="#FF6B8A" letter-spacing="1">PHASE 3 · 9 月+</text>
+    <text x="866" y="372" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="26" font-weight="bold" fill="#EDE6EC">商业化</text>
+    <text fill="#A99FB0" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" x="866" y="406">账单导出 / 会员增值 / 数据洞察，</text><text fill="#A99FB0" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" x="866" y="430">探索可持续变现</text></g>
+
+  <g id="ask-1">
+    <path fill="#2E2238" stroke="#FF6B8A" stroke-opacity="0.45" stroke-width="1.5" d="M96,456 H619 A16,16 0 0 1 635,472 V590 A16,16 0 0 1 619,606 H96 A16,16 0 0 1 80,590 V472 A16,16 0 0 1 96,456 Z" />
+    
+  <g transform="translate(108, 484) scale(1.33333)" fill="#FF6B8A">
+    <path d="M19 5a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-14a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3zm-7 4a3 3 0 0 0 -2.996 2.85l-.004 .15a3 3 0 1 0 3 -3m6.01 2h-.01a1 1 0 0 0 0 2h.01a1 1 0 0 0 0 -2m-12 0h-.01a1 1 0 1 0 .01 2a1 1 0 0 0 0 -2" />
+  </g>
+    <text x="150" y="510" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="18" font-weight="bold" fill="#A99FB0">本轮融资</text>
+    <text x="108" y="558" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="34" font-weight="bold" fill="#EDE6EC">天使轮</text>
+    <text x="108" y="592" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#A99FB0">用于团队搭建 · 产品打磨 · 冷启动获客</text>
+  </g>
+
+  <g id="ask-2">
+    <path fill="#2E2238" stroke="#FFD479" stroke-opacity="0.45" stroke-width="1.5" d="M661,456 H1184 A16,16 0 0 1 1200,472 V590 A16,16 0 0 1 1184,606 H661 A16,16 0 0 1 645,590 V472 A16,16 0 0 1 661,456 Z" />
+    
+  <g transform="translate(673, 484) scale(1.33333)" fill="#FFD479">
+    <path d="M19 4c.852 0 1.297 .986 .783 1.623l-.076 .084l-3.792 3.793l3.792 3.793c.603 .602 .22 1.614 -.593 1.701l-.114 .006h-13v6a1 1 0 0 1 -.883 .993l-.117 .007a1 1 0 0 1 -.993 -.883l-.007 -.117v-16a1 1 0 0 1 .883 -.993l.117 -.007h14z" />
+  </g>
+    <text x="715" y="510" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="18" font-weight="bold" fill="#A99FB0">12 个月里程碑</text>
+    <text x="673" y="558" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="34" font-weight="bold" fill="#EDE6EC">10 万注册用户</text>
+    <text x="673" y="592" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#A99FB0">验证留存与单位经济模型</text>
+  </g>
+
+  <g id="closing">
+    <text x="640" y="660" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="22" fill="#A99FB0">让记账重新变得简单——<tspan fill="#FFD479" font-weight="bold">一秒记账，清楚花钱。</tspan></text>
+  </g>
+
+  <g id="footer">
+    <text x="80" y="694" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" fill="#6E6076">每日记账 · 投资人路演</text>
+    <text x="1200" y="694" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" fill="#6E6076">05 / 05</text>
+  </g>
+</svg>

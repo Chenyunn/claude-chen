@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <radialGradient id="glowPink2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6B8A" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#FF6B8A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <g id="background">
+    <rect x="0" y="0" width="1280" height="720" fill="#1A1320"/>
+    <circle cx="1180" cy="120" r="300" fill="url(#glowPink2)"/>
+  </g>
+
+  <g id="header">
+    <text x="80" y="92" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="18" font-weight="bold" fill="#FF6B8A" letter-spacing="2">问题 · THE PROBLEM</text>
+    <text x="80" y="148" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="44" font-weight="bold" fill="#EDE6EC">人人都想记账，<tspan fill="#FF8C6B">没人能坚持</tspan></text>
+  </g>
+
+  <g id="pain-1">
+    <rect x="80" y="196" width="560" height="92" rx="14" fill="#241A2E" stroke="#3A2C44" stroke-width="1"/>
+    <rect x="80" y="196" width="4" height="92" rx="2" fill="#FF6B8A"/>
+    <circle cx="128" cy="242" r="24" fill="#FF6B8A" fill-opacity="0.14"/>
+    <use data-icon="tabler-filled/clock" x="112" y="226" width="32" height="32" fill="#FF8FA6"/>
+    <text x="174" y="236" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="22" font-weight="bold" fill="#EDE6EC">步骤太繁琐</text>
+    <text x="174" y="268" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#A99FB0">选账户、选分类、填备注，记一笔要点七八下</text>
+  </g>
+
+  <g id="pain-2">
+    <rect x="80" y="300" width="560" height="92" rx="14" fill="#241A2E" stroke="#3A2C44" stroke-width="1"/>
+    <rect x="80" y="300" width="4" height="92" rx="2" fill="#FF6B8A"/>
+    <circle cx="128" cy="346" r="24" fill="#FF6B8A" fill-opacity="0.14"/>
+    <use data-icon="tabler-filled/mood-sad" x="112" y="330" width="32" height="32" fill="#FF8FA6"/>
+    <text x="174" y="340" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="22" font-weight="bold" fill="#EDE6EC">容易忘记</text>
+    <text x="174" y="372" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#A99FB0">一天结束才想起没记，消费早就忘了</text>
+  </g>
+
+  <g id="pain-3">
+    <rect x="80" y="404" width="560" height="92" rx="14" fill="#241A2E" stroke="#3A2C44" stroke-width="1"/>
+    <rect x="80" y="404" width="4" height="92" rx="2" fill="#FF6B8A"/>
+    <circle cx="128" cy="450" r="24" fill="#FF6B8A" fill-opacity="0.14"/>
+    <use data-icon="tabler-filled/flame" x="112" y="434" width="32" height="32" fill="#FF8FA6"/>
+    <text x="174" y="444" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="22" font-weight="bold" fill="#EDE6EC">三分钟热度</text>
+    <text x="174" y="476" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#A99FB0">下载一堆 App，一周后全部放弃</text>
+  </g>
+
+  <g id="pain-4">
+    <rect x="80" y="508" width="560" height="92" rx="14" fill="#241A2E" stroke="#3A2C44" stroke-width="1"/>
+    <rect x="80" y="508" width="4" height="92" rx="2" fill="#FF6B8A"/>
+    <circle cx="128" cy="554" r="24" fill="#FF6B8A" fill-opacity="0.14"/>
+    <use data-icon="tabler-filled/chart-pie-3" x="112" y="538" width="32" height="32" fill="#FF8FA6"/>
+    <text x="174" y="548" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="22" font-weight="bold" fill="#EDE6EC">数据看不懂</text>
+    <text x="174" y="580" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#A99FB0">记了一堆数字，却没有清晰的复盘</text>
+  </g>
+
+  <g id="insight">
+    <rect x="688" y="196" width="512" height="404" rx="18" fill="#2E2238" stroke="#FF6B8A" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="724" y="258" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="20" font-weight="bold" fill="#FFD479">市场缺口在哪？</text>
+    <text x="724" y="318" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="26" font-weight="bold" fill="#EDE6EC">现有产品的两个极端</text>
+    <text x="724" y="370" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="22" fill="#A99FB0">· 要么<tspan fill="#FF8C6B" font-weight="bold">太重</tspan>：随手记、鲨鱼记账</text>
+    <text x="724" y="412" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="22" fill="#A99FB0">· 要么<tspan fill="#FF8C6B" font-weight="bold">绑生态、分类粗</tspan>：支付宝记账本</text>
+    <line x1="724" y1="446" x2="1164" y2="446" stroke="#3A2C44" stroke-width="1"/>
+    <text x="724" y="498" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="24" fill="#EDE6EC">真正的缺口是一款</text>
+    <text x="724" y="540" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="30" font-weight="bold" fill="#FF6B8A">够轻、无广告、能让人坚持</text>
+    <text x="724" y="578" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="22" fill="#A99FB0">——这正是我们的<tspan fill="#FFD479" font-weight="bold">切入点</tspan>。</text>
+  </g>
+
+  <g id="footer">
+    <text x="80" y="690" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" fill="#6E6076">每日记账 · 投资人路演</text>
+    <text x="1200" y="690" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" fill="#6E6076">02 / 05</text>
+  </g>
+</svg>

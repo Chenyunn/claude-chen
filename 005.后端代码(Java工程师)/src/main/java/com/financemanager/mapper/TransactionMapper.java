@@ -67,6 +67,11 @@ public interface TransactionMapper {
     int deleteByUserAndId(@Param("userId") Long userId, @Param("id") Long id);
 
     /**
+     * 获取用户最近交易
+     */
+    List<Transaction> findRecentByUser(@Param("userId") Long userId, @Param("limit") int limit);
+
+    /**
      * 按月统计用户收支
      */
     MonthlySummary getMonthlySummary(@Param("userId") Long userId,

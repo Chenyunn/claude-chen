@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="UniApp Unit Tests" tests="44" failures="2" errors="0" time="3.1">
+    <testsuite name="unit/api.test.ts" timestamp="2026-06-29T14:12:10.401Z" hostname="LX-MateBook-14" tests="13" failures="1" errors="0" skipped="0" time="0.022">
+        <testcase classname="unit/api.test.ts" name="utils/api.ts — uni.request 封装 &gt; Token 存取 &gt; setToken 应调用 uni.setStorageSync" time="0.005">
+        </testcase>
+        <testcase classname="unit/api.test.ts" name="utils/api.ts — uni.request 封装 &gt; Token 存取 &gt; getToken 应调用 uni.getStorageSync" time="0.001">
+        </testcase>
+        <testcase classname="unit/api.test.ts" name="utils/api.ts — uni.request 封装 &gt; Token 存取 &gt; getToken 无值时应返回 null" time="0">
+        </testcase>
+        <testcase classname="unit/api.test.ts" name="utils/api.ts — uni.request 封装 &gt; Token 存取 &gt; removeToken 应调用 uni.removeStorageSync" time="0">
+        </testcase>
+        <testcase classname="unit/api.test.ts" name="utils/api.ts — uni.request 封装 &gt; request() — 核心请求 &gt; 应使用硬编码的 baseURL 拼接请求路径" time="0.001">
+        </testcase>
+        <testcase classname="unit/api.test.ts" name="utils/api.ts — uni.request 封装 &gt; request() — 核心请求 &gt; ★ UA-SEC-03: baseURL 硬编码为 http（非 https）" time="0">
+            <system-out>
+  ⚠️  [UA-SEC-03] baseURL 硬编码为 http://localhost:8081/api → P2
+
+            </system-out>
+        </testcase>
+        <testcase classname="unit/api.test.ts" name="utils/api.ts — uni.request 封装 &gt; request() — 核心请求 &gt; 有 token 时应附加 Authorization 头" time="0.006">
+            <failure message="expected undefined to be &apos;Bearer my-jwt-token&apos; // Object.is equality" type="AssertionError">
+AssertionError: expected undefined to be &apos;Bearer my-jwt-token&apos; // Object.is equality
+
+- Expected: 
+&quot;Bearer my-jwt-token&quot;
+
++ Received: 
+undefined
+
+ ❯ unit/api.test.ts:168:44
+            </failure>
+        </testcase>
+        <testcase classname="unit/api.test.ts" name="utils/api.ts — uni.request 封装 &gt; request() — 核心请求 &gt; 无 token 时不应有 Authorization 头" time="0.001">
+        </testcase>
+        <testcase classname="unit/api.test.ts" name="utils/api.ts — uni.request 封装 &gt; request() — 核心请求 &gt; POST 请求应正确设置 method 和 body" time="0.001">
+        </testcase>
+        <testcase classname="unit/api.test.ts" name="utils/api.ts — uni.request 封装 &gt; GET 查询参数 &gt; 应正确拼接查询参数" time="0">
+        </testcase>
+        <testcase classname="unit/api.test.ts" name="utils/api.ts — uni.request 封装 &gt; GET 查询参数 &gt; 应过滤 null/undefined/空字符串参数" time="0">
+        </testcase>
+        <testcase classname="unit/api.test.ts" name="utils/api.ts — uni.request 封装 &gt; 401 处理 &gt; 401 应清除 token 并 reLaunch 到登录页" time="0.002">
+        </testcase>
+        <testcase classname="unit/api.test.ts" name="utils/api.ts — uni.request 封装 &gt; 网络错误处理 &gt; uni.request 失败应抛出错误" time="0">
+        </testcase>
+    </testsuite>
+    <testsuite name="unit/store.test.ts" timestamp="2026-06-29T14:12:10.414Z" hostname="LX-MateBook-14" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="unit/store.test.ts" name="unit/store.test.ts" time="0">
+            <failure message="Failed to resolve import &quot;vuex&quot; from &quot;unit/store.test.ts&quot;. Does the file exist?" type="Error">
+Error: Failed to resolve import &quot;vuex&quot; from &quot;unit/store.test.ts&quot;. Does the file exist?
+ ❯ TransformPluginContext._formatError node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41
+ ❯ TransformPluginContext.error node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16
+ ❯ normalizeUrl node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23
+ ❯ async file:/D:/root/claude-vibe-coding/claude-my-product/tests/uniapp/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+ ❯ TransformPluginContext.transform node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7
+ ❯ PluginContainer.transform node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18
+ ❯ loadAndTransform node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27
+            </failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="unit/types.test.ts" timestamp="2026-06-29T14:12:10.416Z" hostname="LX-MateBook-14" tests="8" failures="0" errors="0" skipped="0" time="0.005">
+        <testcase classname="unit/types.test.ts" name="TypeScript 类型 — 结构完整性验证 &gt; User 接口 &gt; 完整 User 对象应包含所有必需字段" time="0.001">
+        </testcase>
+        <testcase classname="unit/types.test.ts" name="TypeScript 类型 — 结构完整性验证 &gt; User 接口 &gt; 最小 User 对象（仅必需字段）" time="0">
+        </testcase>
+        <testcase classname="unit/types.test.ts" name="TypeScript 类型 — 结构完整性验证 &gt; Category 接口 &gt; Category type 字段应为 expense | income" time="0.001">
+        </testcase>
+        <testcase classname="unit/types.test.ts" name="TypeScript 类型 — 结构完整性验证 &gt; Transaction 接口 &gt; Transaction 应包含关联的 Category 和 Account" time="0">
+        </testcase>
+        <testcase classname="unit/types.test.ts" name="TypeScript 类型 — 结构完整性验证 &gt; PagedResponse 泛型接口 &gt; 分页响应应包含 total/page/pageSize/hasMore" time="0.001">
+        </testcase>
+        <testcase classname="unit/types.test.ts" name="TypeScript 类型 — 结构完整性验证 &gt; PagedResponse 泛型接口 &gt; 最后一页 hasMore 应为 false" time="0">
+        </testcase>
+        <testcase classname="unit/types.test.ts" name="TypeScript 类型 — 结构完整性验证 &gt; StatisticsSummary &amp; TrendPoint &gt; TrendPoint 应包含 date/expense/budget" time="0">
+        </testcase>
+        <testcase classname="unit/types.test.ts" name="TypeScript 类型 — 结构完整性验证 &gt; StatisticsSummary &amp; TrendPoint &gt; StatisticsSummary 应包含 totalExpense/totalIncome/topCategory" time="0">
+        </testcase>
+    </testsuite>
+    <testsuite name="static/manifest.test.ts" timestamp="2026-06-29T14:12:10.419Z" hostname="LX-MateBook-14" tests="22" failures="0" errors="0" skipped="0" time="0.016">
+        <testcase classname="static/manifest.test.ts" name="manifest.json — 配置完整性审查 &gt; manifest.json 应存在且可解析" time="0.002">
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="manifest.json — 配置完整性审查 &gt; STATIC-03: 应包含基本应用信息" time="0.001">
+            <system-out>
+  应用名称: 每日记账
+
+            </system-out>
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="manifest.json — 配置完整性审查 &gt; ★ UA-SEC-07: mp-weixin.appid 应为有效值（非空）" time="0">
+            <system-out>
+  [UA-SEC-07] 微信小程序 appid: &quot;(空)&quot;
+  ⚠️  appid 为空 → 无法上传/真机审核 → P2
+
+            </system-out>
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="manifest.json — 配置完整性审查 &gt; ★ UA-SEC-04: 小程序 urlCheck 不应关闭" time="0">
+            <system-out>
+  [UA-SEC-04] urlCheck: undefined
+
+            </system-out>
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="manifest.json — 配置完整性审查 &gt; ★ UA-SEC-05: iOS 不应允许任意 HTTP 请求" time="0">
+            <system-out>
+  [UA-SEC-05] iOS ATS 配置: undefined
+
+            </system-out>
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="pages.json — 页面路由配置审查 &gt; pages.json 应存在且可解析" time="0">
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="pages.json — 页面路由配置审查 &gt; 应包含 7 个页面路由" time="0.002">
+            <system-out>
+  页面路由 (7): pages/login/login, pages/register/register, pages/index/index, pages/records/records, pages/food/food, pages/statistics/statistics, pages/profile/profile
+
+            </system-out>
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="pages.json — 页面路由配置审查 &gt; 应包含 5 个 tabBar 标签" time="0">
+            <system-out>
+  tabBar 标签: 首页, 交易, 餐饮, 统计, 我的
+
+            </system-out>
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="pages.json — 页面路由配置审查 &gt; ★ XC-08: tabBar 图标路径引用的文件应存在" time="0.001">
+            <system-out>
+  ⚠️  [XC-08] tabBar[0] &quot;首页&quot; 图标不存在: static/tab/home.png → P1
+  ⚠️  [XC-08] tabBar[1] &quot;交易&quot; 图标不存在: static/tab/records.png → P1
+  ⚠️  [XC-08] tabBar[2] &quot;餐饮&quot; 图标不存在: static/tab/food.png → P1
+  ⚠️  [XC-08] tabBar[3] &quot;统计&quot; 图标不存在: static/tab/statistics.png → P1
+  ⚠️  [XC-08] tabBar[4] &quot;我的&quot; 图标不存在: static/tab/profile.png → P1
+
+            </system-out>
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="pages.json — 页面路由配置审查 &gt; STATIC-04: src/static 目录应存在" time="0">
+            <system-out>
+  [STATIC-04] src/static 目录: 缺失 ⚠️ → P1
+
+            </system-out>
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="pages.json — 页面路由配置审查 &gt; src/components 目录应存在（若无则确认为缺失）" time="0.001">
+            <system-out>
+  注意: src/components 目录不存在（无复用组件）
+
+            </system-out>
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="关键源文件存在性验证 &gt; src/main.ts 应存在" time="0">
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="关键源文件存在性验证 &gt; src/App.vue 应存在" time="0.001">
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="关键源文件存在性验证 &gt; src/store/index.ts 应存在" time="0">
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="关键源文件存在性验证 &gt; src/utils/api.ts 应存在" time="0">
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="关键源文件存在性验证 &gt; src/types/index.ts 应存在" time="0.001">
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="关键源文件存在性验证 &gt; src/pages.json 应存在" time="0">
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="关键源文件存在性验证 &gt; src/api/category.ts 应存在" time="0">
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="关键源文件存在性验证 &gt; src/api/transaction.ts 应存在" time="0.001">
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="关键源文件存在性验证 &gt; src/api/account.ts 应存在" time="0">
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="关键源文件存在性验证 &gt; src/api/food.ts 应存在" time="0">
+        </testcase>
+        <testcase classname="static/manifest.test.ts" name="关键源文件存在性验证 &gt; src/api/statistics.ts 应存在" time="0">
+        </testcase>
+    </testsuite>
+</testsuites>

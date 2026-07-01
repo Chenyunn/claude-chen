@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="Frontend Unit Tests" tests="60" failures="20" errors="0" time="3.373">
+    <testsuite name="unit/api.test.js" timestamp="2026-06-29T14:09:58.582Z" hostname="LX-MateBook-14" tests="19" failures="2" errors="0" skipped="0" time="0.024">
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; Token 存取 &gt; setToken 应写入 localStorage" time="0.003">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; Token 存取 &gt; getToken 应从 localStorage 读取" time="0">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; Token 存取 &gt; getToken 无 token 时应返回 null" time="0">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; Token 存取 &gt; removeToken 应删除 localStorage 中的 token" time="0.001">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; Token 存取 &gt; getToken 在 localStorage 异常时应容错（返回 null）" time="0">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; Token 存取 &gt; setToken 在 localStorage 异常时应容错（不抛异常）" time="0.001">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; request() — 核心请求 &gt; GET 请求应正确拼接 baseURL" time="0.001">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; request() — 核心请求 &gt; GET 请求应带查询参数" time="0">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; request() — 核心请求 &gt; GET 请求应过滤空值参数" time="0.001">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; request() — 核心请求 &gt; 有 Token 时应附加 Authorization 头" time="0.001">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; request() — 核心请求 &gt; POST 请求应带 JSON body" time="0">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; request() — 核心请求 &gt; PATCH 请求应正确发送" time="0">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; request() — 核心请求 &gt; DELETE 请求应正确发送" time="0.001">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; 响应处理 &gt; code=0 应返回 data" time="0.002">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; 响应处理 &gt; code!=0 应抛出错误" time="0.001">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; 超时处理 &gt; 请求超时应抛出超时错误" time="0.002">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; 网络错误处理 &gt; 网络断开应抛出网络错误" time="0.001">
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; 401 处理 &gt; 401 应清除 token 并重定向（非登录页）" time="0.005">
+            <failure message="Cannot redefine property: pathname" type="TypeError">
+TypeError: Cannot redefine property: pathname
+ ❯ unit/api.test.js:248:14
+            </failure>
+        </testcase>
+        <testcase classname="unit/api.test.js" name="api.js — HTTP 封装 &gt; 401 处理 &gt; 401 在登录页不应重定向" time="0.001">
+            <failure message="Cannot redefine property: pathname" type="TypeError">
+TypeError: Cannot redefine property: pathname
+ ❯ unit/api.test.js:269:14
+            </failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="unit/auth.test.js" timestamp="2026-06-29T14:09:58.592Z" hostname="LX-MateBook-14" tests="14" failures="4" errors="0" skipped="0" time="0.04">
+        <testcase classname="unit/auth.test.js" name="auth.js — 认证业务逻辑 &gt; 初始状态 &gt; 无 token 时应未认证" time="0.001">
+        </testcase>
+        <testcase classname="unit/auth.test.js" name="auth.js — 认证业务逻辑 &gt; 初始状态 &gt; getUser 初始应为 null" time="0.001">
+        </testcase>
+        <testcase classname="unit/auth.test.js" name="auth.js — 认证业务逻辑 &gt; login() — 登录 &gt; 登录成功应保存 token 并设置用户状态" time="0.008">
+            <failure message="expected undefined to be &apos;jwt-login-token&apos; // Object.is equality" type="AssertionError">
+AssertionError: expected undefined to be &apos;jwt-login-token&apos; // Object.is equality
+
+- Expected: 
+&quot;jwt-login-token&quot;
+
++ Received: 
+undefined
+
+ ❯ unit/auth.test.js:63:28
+            </failure>
+        </testcase>
+        <testcase classname="unit/auth.test.js" name="auth.js — 认证业务逻辑 &gt; login() — 登录 &gt; 登录失败应保持未认证状态" time="0.019">
+            <system-err>
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\browser\not-implemented.js:9:17)
+    at navigateFetch (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\window\navigation.js:77:3)
+    at exports.navigate (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\window\navigation.js:55:3)
+    at LocationImpl._locationObjectNavigate (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\window\Location-impl.js:31:5)
+    at LocationImpl._locationObjectSetterNavigate (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\window\Location-impl.js:25:17)
+    at LocationImpl.set href [as href] (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\window\Location-impl.js:47:10)
+    at Location.set href [as href] (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\generated\Location.js:125:37)
+    at request (eval at loadScript (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\setup.js:63:16), &lt;anonymous&gt;:122:32)
+    at Object.login (eval at loadScript (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\setup.js:63:16), &lt;anonymous&gt;:54:20)
+    at D:\root\claude-vibe-coding\claude-my-product\tests\frontend\unit\auth.test.js:76:7 [90mundefined[39m
+
+            </system-err>
+            <failure message="expected true to be false // Object.is equality" type="AssertionError">
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ unit/auth.test.js:80:29
+            </failure>
+        </testcase>
+        <testcase classname="unit/auth.test.js" name="auth.js — 认证业务逻辑 &gt; login() — 登录 &gt; rememberMe 应被转为布尔值" time="0.001">
+        </testcase>
+        <testcase classname="unit/auth.test.js" name="auth.js — 认证业务逻辑 &gt; register() — 注册 &gt; 注册成功应保存 token 并设置用户状态" time="0.002">
+            <failure message="expected undefined to be &apos;jwt-reg-token&apos; // Object.is equality" type="AssertionError">
+AssertionError: expected undefined to be &apos;jwt-reg-token&apos; // Object.is equality
+
+- Expected: 
+&quot;jwt-reg-token&quot;
+
++ Received: 
+undefined
+
+ ❯ unit/auth.test.js:123:28
+            </failure>
+        </testcase>
+        <testcase classname="unit/auth.test.js" name="auth.js — 认证业务逻辑 &gt; register() — 注册 &gt; 注册失败应保持未认证状态" time="0">
+            <failure message="expected true to be false // Object.is equality" type="AssertionError">
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ unit/auth.test.js:139:29
+            </failure>
+        </testcase>
+        <testcase classname="unit/auth.test.js" name="auth.js — 认证业务逻辑 &gt; logout() — 登出 &gt; 登出应清除 token 和用户状态（不管请求是否成功）" time="0">
+        </testcase>
+        <testcase classname="unit/auth.test.js" name="auth.js — 认证业务逻辑 &gt; logout() — 登出 &gt; 登出请求成功应正常清除" time="0.001">
+        </testcase>
+        <testcase classname="unit/auth.test.js" name="auth.js — 认证业务逻辑 &gt; fetchUser() — 获取用户信息 &gt; 成功获取用户信息应更新 currentUser" time="0.001">
+        </testcase>
+        <testcase classname="unit/auth.test.js" name="auth.js — 认证业务逻辑 &gt; fetchUser() — 获取用户信息 &gt; 获取失败应清除 token" time="0.001">
+            <system-err>
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\browser\not-implemented.js:9:17)
+    at navigateFetch (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\window\navigation.js:77:3)
+    at exports.navigate (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\window\navigation.js:55:3)
+    at LocationImpl._locationObjectNavigate (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\window\Location-impl.js:31:5)
+    at LocationImpl._locationObjectSetterNavigate (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\window\Location-impl.js:25:17)
+    at LocationImpl.set href [as href] (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\window\Location-impl.js:47:10)
+    at Location.set href [as href] (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\generated\Location.js:125:37)
+    at request (eval at loadScript (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\setup.js:63:16), &lt;anonymous&gt;:122:32)
+    at Object.fetchUser (eval at loadScript (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\setup.js:63:16), &lt;anonymous&gt;:92:20)
+    at D:\root\claude-vibe-coding\claude-my-product\tests\frontend\unit\auth.test.js:208:7 [90mundefined[39m
+
+            </system-err>
+        </testcase>
+        <testcase classname="unit/auth.test.js" name="auth.js — 认证业务逻辑 &gt; checkAuth() — 鉴权守卫 &gt; 无 token 应返回 false" time="0.001">
+        </testcase>
+        <testcase classname="unit/auth.test.js" name="auth.js — 认证业务逻辑 &gt; checkAuth() — 鉴权守卫 &gt; 有 token 且 fetchUser 成功应返回 true" time="0.001">
+        </testcase>
+        <testcase classname="unit/auth.test.js" name="auth.js — 认证业务逻辑 &gt; checkAuth() — 鉴权守卫 &gt; 有 token 但 fetchUser 失败应返回 false 并清除 token" time="0.001">
+            <system-err>
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\browser\not-implemented.js:9:17)
+    at navigateFetch (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\window\navigation.js:77:3)
+    at exports.navigate (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\window\navigation.js:55:3)
+    at LocationImpl._locationObjectNavigate (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\window\Location-impl.js:31:5)
+    at LocationImpl._locationObjectSetterNavigate (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\window\Location-impl.js:25:17)
+    at LocationImpl.set href [as href] (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\window\Location-impl.js:47:10)
+    at Location.set href [as href] (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\node_modules\jsdom\lib\jsdom\living\generated\Location.js:125:37)
+    at request (eval at loadScript (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\setup.js:63:16), &lt;anonymous&gt;:122:32)
+    at fetchUser (eval at loadScript (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\setup.js:63:16), &lt;anonymous&gt;:92:20)
+    at Object.checkAuth (eval at loadScript (D:\root\claude-vibe-coding\claude-my-product\tests\frontend\setup.js:63:16), &lt;anonymous&gt;:114:7) [90mundefined[39m
+
+            </system-err>
+        </testcase>
+    </testsuite>
+    <testsuite name="unit/toast.test.js" timestamp="2026-06-29T14:09:58.598Z" hostname="LX-MateBook-14" tests="21" failures="14" errors="0" skipped="0" time="0.489">
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; show() — 显示通知 &gt; show 应创建 toast 元素到 DOM" time="0.03">
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; show() — 显示通知 &gt; show 应返回 dismiss 函数" time="0.003">
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; show() — 显示通知 &gt; 默认类型应为 info" time="0.007">
+            <failure message="Cannot read properties of null (reading &apos;classList&apos;)" type="TypeError">
+TypeError: Cannot read properties of null (reading &apos;classList&apos;)
+ ❯ unit/toast.test.js:50:22
+            </failure>
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; show() — 显示通知 &gt; type=success 应显示成功样式" time="0.002">
+            <failure message="Cannot read properties of null (reading &apos;classList&apos;)" type="TypeError">
+TypeError: Cannot read properties of null (reading &apos;classList&apos;)
+ ❯ unit/toast.test.js:56:22
+            </failure>
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; show() — 显示通知 &gt; type=error 应显示错误样式" time="0.002">
+            <failure message="Cannot read properties of null (reading &apos;classList&apos;)" type="TypeError">
+TypeError: Cannot read properties of null (reading &apos;classList&apos;)
+ ❯ unit/toast.test.js:62:22
+            </failure>
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; show() — 显示通知 &gt; type=warning 应显示警告样式" time="0.001">
+            <failure message="Cannot read properties of null (reading &apos;classList&apos;)" type="TypeError">
+TypeError: Cannot read properties of null (reading &apos;classList&apos;)
+ ❯ unit/toast.test.js:68:22
+            </failure>
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; show() — 显示通知 &gt; type=loading 应显示加载旋转器且不可关闭" time="0.002">
+            <failure message="Cannot read properties of null (reading &apos;classList&apos;)" type="TypeError">
+TypeError: Cannot read properties of null (reading &apos;classList&apos;)
+ ❯ unit/toast.test.js:74:22
+            </failure>
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; show() — 显示通知 &gt; closable=false 不应显示关闭按钮" time="0.001">
+            <failure message="Cannot read properties of null (reading &apos;querySelector&apos;)" type="TypeError">
+TypeError: Cannot read properties of null (reading &apos;querySelector&apos;)
+ ❯ unit/toast.test.js:84:32
+            </failure>
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; show() — 显示通知 &gt; 应注入 CSS 样式（仅一次）" time="0.002">
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; show() — 显示通知 &gt; toast 应设置 role=&quot;alert&quot; 用于无障碍访问" time="0.001">
+            <failure message="Cannot read properties of null (reading &apos;getAttribute&apos;)" type="TypeError">
+TypeError: Cannot read properties of null (reading &apos;getAttribute&apos;)
+ ❯ unit/toast.test.js:105:22
+            </failure>
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; show() — 显示通知 &gt; toast 容器应设置 aria-live=&quot;polite&quot;" time="0.001">
+            <failure message="Cannot read properties of null (reading &apos;getAttribute&apos;)" type="TypeError">
+TypeError: Cannot read properties of null (reading &apos;getAttribute&apos;)
+ ❯ unit/toast.test.js:111:24
+            </failure>
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; dismiss() — 关闭通知 &gt; dismiss 应移除 toast 元素（带动画）" time="0.019">
+            <failure message="expected null not to be null" type="AssertionError">
+AssertionError: expected null not to be null
+ ❯ unit/toast.test.js:127:27
+            </failure>
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; dismiss() — 关闭通知 &gt; immediate=true 应跳过动画直接移除" time="0.002">
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; dismiss() — 关闭通知 &gt; dismiss 无效元素不抛异常" time="0.001">
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; dismiss() — 关闭通知 &gt; dismiss 应清除定时器" time="0.406">
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; 快捷方法 &gt; success() 应显示 type=success" time="0.002">
+            <failure message="Cannot read properties of null (reading &apos;classList&apos;)" type="TypeError">
+TypeError: Cannot read properties of null (reading &apos;classList&apos;)
+ ❯ unit/toast.test.js:174:22
+            </failure>
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; 快捷方法 &gt; error() 应显示 type=error 且默认持续 5s" time="0.001">
+            <failure message="Cannot read properties of null (reading &apos;classList&apos;)" type="TypeError">
+TypeError: Cannot read properties of null (reading &apos;classList&apos;)
+ ❯ unit/toast.test.js:181:22
+            </failure>
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; 快捷方法 &gt; warning() 应显示 type=warning" time="0.001">
+            <failure message="Cannot read properties of null (reading &apos;classList&apos;)" type="TypeError">
+TypeError: Cannot read properties of null (reading &apos;classList&apos;)
+ ❯ unit/toast.test.js:188:22
+            </failure>
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; 快捷方法 &gt; info() 应显示 type=info" time="0">
+            <failure message="Cannot read properties of null (reading &apos;classList&apos;)" type="TypeError">
+TypeError: Cannot read properties of null (reading &apos;classList&apos;)
+ ❯ unit/toast.test.js:194:22
+            </failure>
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; 快捷方法 &gt; loading() 应显示 type=loading 且不可关闭、不自动消失" time="0.001">
+            <failure message="Cannot read properties of null (reading &apos;classList&apos;)" type="TypeError">
+TypeError: Cannot read properties of null (reading &apos;classList&apos;)
+ ❯ unit/toast.test.js:200:22
+            </failure>
+        </testcase>
+        <testcase classname="unit/toast.test.js" name="toast.js — 通知组件 &gt; maxVisible — 最大可见数限制 &gt; 超过 MAX_VISIBLE 应移除最早的 toast" time="0.001">
+        </testcase>
+    </testsuite>
+    <testsuite name="security/xss.test.js" timestamp="2026-06-29T14:09:58.615Z" hostname="LX-MateBook-14" tests="6" failures="0" errors="0" skipped="0" time="0.027">
+        <testcase classname="security/xss.test.js" name="前端 XSS 安全测试 &gt; FE-SEC-03: innerHTML 注入风险（profile.html 分类渲染） &gt; 正常分类名不应产生问题" time="0.002">
+        </testcase>
+        <testcase classname="security/xss.test.js" name="前端 XSS 安全测试 &gt; FE-SEC-03: innerHTML 注入风险（profile.html 分类渲染） &gt; ★ 分类名含 &lt;img src=x onerror=alert(1)&gt; 导致存储型 XSS" time="0.001">
+            <system-out>
+
+  ⚠️  [FE-SEC-03] innerHTML XSS: 分类名直接拼接未转义 → P0 缺陷
+  ⚠️  生成的 HTML 包含: &lt;div class=&quot;cat-item&quot; data-id=&quot;99&quot;&gt;&lt;div class=&quot;cat-icon-box&quot;&gt;🔒&lt;/div&gt;&lt;div class=&quot;cat-info&quot;&gt;&lt;span class=&quot;cat-name&quot;&gt;&lt;img src=x onerror=alert(1)&gt;&lt;/span&gt;&lt;span class=&quot;cat-meta&quot;&gt;xss_test&lt;/span&gt;&lt;/div&gt;&lt;div cl...
+
+            </system-out>
+        </testcase>
+        <testcase classname="security/xss.test.js" name="前端 XSS 安全测试 &gt; FE-SEC-03: innerHTML 注入风险（profile.html 分类渲染） &gt; ★ 分类名含 &lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt; 应被转义" time="0">
+            <system-out>
+
+  ⚠️  [FE-SEC-03] script 注入同样未转义 → P0 缺陷
+
+            </system-out>
+        </testcase>
+        <testcase classname="security/xss.test.js" name="前端 XSS 安全测试 &gt; FE-SEC-03: innerHTML 注入风险（profile.html 分类渲染） &gt; ★ 分类 code 同样存在 XSS 注入风险" time="0.001">
+            <system-out>
+
+  ⚠️  [FE-SEC-03] 分类code 同样未转义 → P0 缺陷
+
+            </system-out>
+        </testcase>
+        <testcase classname="security/xss.test.js" name="前端 XSS 安全测试 &gt; FE-SEC-03: innerHTML 注入风险（profile.html 分类渲染） &gt; 安全修复建议：应使用 textContent 或 HTML 转义函数" time="0.003">
+        </testcase>
+        <testcase classname="security/xss.test.js" name="前端 XSS 安全测试 &gt; Toast 消息 XSS 安全性 &gt; toast 消息应安全处理 HTML 特殊字符" time="0.018">
+            <system-out>
+
+  Toast XSS 安全: script标签数=0
+
+            </system-out>
+        </testcase>
+    </testsuite>
+</testsuites>

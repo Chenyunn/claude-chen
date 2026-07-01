@@ -121,4 +121,9 @@ public class TransactionServiceImpl implements TransactionService {
     public List<TransactionMapper.CategorySummary> getMonthlyCategorySummary(Long userId, LocalDate month, String type) {
         return transactionMapper.getMonthlyCategorySummary(userId, month, type);
     }
+
+    @Override
+    public List<Transaction> getRecentTransactions(Long userId, int limit) {
+        return transactionMapper.findRecentByUser(userId, limit);
+    }
 }

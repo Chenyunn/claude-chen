@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF5F3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFE8E4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="url(#bgGrad)"/>
+
+  <!-- Title bar - coral -->
+  <rect width="1280" height="100" fill="#FF7F50"/>
+  <text x="50" y="65" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF">Day 3：后海酒吧街</text>
+  <text x="1230" y="65" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="18" fill="#FFDAB9" text-anchor="end" font-weight="bold">DAY 3</text>
+
+  <!-- Left card -->
+  <rect x="40" y="130" width="580" height="450" rx="20" fill="#FFFFFF" stroke="#FF7F50" stroke-width="2"/>
+  <text x="70" y="170" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="28" font-weight="bold" fill="#1E3A5F">🍺 第三站：后海酒吧街</text>
+
+  <!-- Info items -->
+  <text x="70" y="220" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="18" fill="#5A6978">🎫 门票：免费</text>
+  <text x="70" y="260" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="18" fill="#5A6978">⏰ 最佳时段：18:00-24:00</text>
+  <text x="70" y="300" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="18" fill="#5A6978">👣 亮点：胡同文艺、酒吧音乐</text>
+  <text x="70" y="340" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="18" fill="#5A6978">☕ 咖啡：%arabica、后海V酒吧</text>
+  <text x="70" y="380" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="18" fill="#5A6978">🚲 伴行：骑单车逛胡同</text>
+
+  <!-- Tips card -->
+  <rect x="70" y="430" width="520" height="120" rx="15" fill="#FFDAB9" opacity="0.3"/>
+  <text x="90" y="465" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="20" font-weight="bold" fill="#FF7F50">💡 小贴士</text>
+  <text x="90" y="500" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="16" fill="#5A6978">• 夜晚微凉记得带外套</text>
+  <text x="90" y="530" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="16" fill="#5A6978">• 胡同里停车不便，建议步行</text>
+
+  <!-- Right image placeholder rect -->
+  <rect x="650" y="140" width="590" height="430" rx="15" fill="#FFE8E4"/>
+  <text x="945" y="360" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="24" fill="#FF7F50" text-anchor="middle">[配图区域]</text>
+  <text x="945" y="400" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="16" fill="#5A6978" text-anchor="middle">beijing_houhai.png</text>
+</svg>

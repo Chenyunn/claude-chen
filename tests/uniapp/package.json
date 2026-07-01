@@ -1,0 +1,18 @@
+{
+  "name": "daily-expense-uniapp-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "每日记账uni-app跨端测试 — Vitest + Vue Test Utils 单元/静态测试",
+  "scripts": {
+    "test": "vitest run --config vitest.config.ts",
+    "test:watch": "vitest --config vitest.config.ts",
+    "test:coverage": "vitest run --config vitest.config.ts --coverage",
+    "type-check": "cd ../../007.跨端APP应用(移动端开发工程师)/uniapp-projct && npx vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "vitest": "^1.6.0",
+    "@vue/test-utils": "^2.4.6",
+    "jsdom": "^24.1.0",
+    "typescript": "^5.4.2"
+  }
+}

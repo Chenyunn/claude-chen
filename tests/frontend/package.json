@@ -1,0 +1,15 @@
+{
+  "name": "daily-expense-frontend-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "每日记账前端Web测试 — Vitest + jsdom 单元/安全测试",
+  "scripts": {
+    "test": "vitest run --config vitest.config.js",
+    "test:watch": "vitest --config vitest.config.js",
+    "test:coverage": "vitest run --config vitest.config.js --coverage"
+  },
+  "dependencies": {
+    "vitest": "^1.6.0",
+    "jsdom": "^24.1.0"
+  }
+}

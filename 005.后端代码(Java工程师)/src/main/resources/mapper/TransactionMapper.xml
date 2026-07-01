@@ -52,6 +52,13 @@
         <include refid="Base_Where"/>
     </select>
 
+    <select id="findRecentByUser" resultMap="BaseResultMap">
+        SELECT * FROM transactions
+        WHERE user_id = #{userId} AND deleted_at IS NULL
+        ORDER BY occurred_at DESC
+        LIMIT #{limit}
+    </select>
+
     <select id="findByUserAndDateRange" resultMap="BaseResultMap">
         SELECT * FROM transactions
         WHERE user_id = #{userId} AND deleted_at IS NULL

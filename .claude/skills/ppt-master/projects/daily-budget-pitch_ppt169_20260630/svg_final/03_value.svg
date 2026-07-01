@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <radialGradient id="glowC" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6B8A" stop-opacity="0.30" />
+      <stop offset="100%" stop-color="#FF6B8A" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glowC2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD479" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#FFD479" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF6B8A" />
+      <stop offset="55%" stop-color="#FF8C6B" />
+      <stop offset="100%" stop-color="#FFD479" />
+    </linearGradient>
+    <linearGradient id="kpiGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF6B8A" />
+      <stop offset="100%" stop-color="#FFD479" />
+    </linearGradient>
+    <filter id="heroGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur" />
+      <feFlood flood-color="#FF6B8A" flood-opacity="0.45" result="gc" />
+      <feComposite in="gc" in2="blur" operator="in" result="g" />
+      <feMerge><feMergeNode in="g" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+
+  <g id="background">
+    <rect x="0" y="0" width="1280" height="720" fill="#1A1320" />
+    <circle cx="1080" cy="80" r="340" fill="url(#glowC)" />
+    <circle cx="160" cy="660" r="260" fill="url(#glowC2)" />
+  </g>
+
+  <g id="header">
+    <text x="80" y="86" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="18" font-weight="bold" fill="#FF6B8A" letter-spacing="2">核心卖点 · WHY WE WIN</text>
+    <text x="80" y="140" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="44" font-weight="bold" fill="#EDE6EC">三个字打穿市场：<tspan fill="url(#heroGrad)">轻 · 快 · 黏</tspan></text>
+  </g>
+
+  <g id="hero-number">
+    <text x="1200" y="118" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="84" font-weight="bold" fill="url(#heroGrad)" filter="url(#heroGlow)">5<tspan font-size="40">秒</tspan></text>
+    <text x="1200" y="150" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#A99FB0" letter-spacing="1">单笔记账目标耗时</text>
+  </g>
+
+  <g id="sell-1">
+    <path fill="#2E2238" stroke="#FF6B8A" stroke-opacity="0.5" stroke-width="1.5" d="M98,186 H422 A18,18 0 0 1 440,204 V436 A18,18 0 0 1 422,454 H98 A18,18 0 0 1 80,436 V204 A18,18 0 0 1 98,186 Z" />
+    <path fill="#FFD479" d="M335,206 H405 A15,15 0 0 1 420,221 V221 A15,15 0 0 1 405,236 H335 A15,15 0 0 1 320,221 V221 A15,15 0 0 1 335,206 Z" />
+    <text x="370" y="227" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" font-weight="bold" fill="#1A1320">核心护城河</text>
+    <circle cx="124" cy="244" r="30" fill="#FF6B8A" fill-opacity="0.16" />
+    
+  <g transform="translate(104, 224) scale(1.66667)" fill="#FF6B8A">
+    <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z" />
+  </g>
+    <text x="112" y="318" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="28" font-weight="bold" fill="#EDE6EC">极致的快</text>
+    <text fill="#A99FB0" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" x="112" y="362">「一镜直达」首页，金额→分类→</text><text fill="#A99FB0" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" x="112" y="390">保存三步搞定。打开即聚焦输入框，</text><text fill="#A99FB0" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" x="112" y="418">比任何竞品都快。</text></g>
+
+  <g id="sell-2">
+    <path fill="#241A2E" stroke="#3A2C44" stroke-width="1" d="M478,186 H802 A18,18 0 0 1 820,204 V436 A18,18 0 0 1 802,454 H478 A18,18 0 0 1 460,436 V204 A18,18 0 0 1 478,186 Z" />
+    <circle cx="504" cy="244" r="30" fill="#FF8C6B" fill-opacity="0.16" />
+    
+  <g transform="translate(484, 224) scale(1.66667)" fill="#FF8C6B">
+    <path d="M6.979 3.074a6 6 0 0 1 4.988 1.425l.037 .033l.034 -.03a6 6 0 0 1 4.733 -1.44l.246 .036a6 6 0 0 1 3.364 10.008l-.18 .185l-.048 .041l-7.45 7.379a1 1 0 0 1 -1.313 .082l-.094 -.082l-7.493 -7.422a6 6 0 0 1 3.176 -10.215z" />
+  </g>
+    <text x="492" y="318" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="28" font-weight="bold" fill="#EDE6EC">足够的轻</text>
+    <text fill="#A99FB0" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" x="492" y="362">无广告、不绑生态、零学习成本。</text><text fill="#A99FB0" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" x="492" y="390">粉嫩温暖的调性，让记账从「负担」</text><text fill="#A99FB0" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" x="492" y="418">变成愉悦的小习惯。</text></g>
+
+  <g id="sell-3">
+    <path fill="#241A2E" stroke="#3A2C44" stroke-width="1" d="M858,186 H1182 A18,18 0 0 1 1200,204 V436 A18,18 0 0 1 1182,454 H858 A18,18 0 0 1 840,436 V204 A18,18 0 0 1 858,186 Z" />
+    <circle cx="884" cy="244" r="30" fill="#FFD479" fill-opacity="0.16" />
+    
+  <g transform="translate(864, 224) scale(1.66667)" fill="#FFD479">
+    <path d="M10 2c0 -.88 1.056 -1.331 1.692 -.722c1.958 1.876 3.096 5.995 1.75 9.12l-.08 .174l.012 .003c.625 .133 1.203 -.43 2.303 -2.173l.14 -.224a1 1 0 0 1 1.582 -.153c1.334 1.435 2.601 4.377 2.601 6.27c0 4.265 -3.591 7.705 -8 7.705s-8 -3.44 -8 -7.706c0 -2.252 1.022 -4.716 2.632 -6.301l.605 -.589c.241 -.236 .434 -.43 .618 -.624c1.43 -1.512 2.145 -2.924 2.145 -4.78" />
+  </g>
+    <text x="872" y="318" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="28" font-weight="bold" fill="#EDE6EC">留得住的黏</text>
+    <text fill="#A99FB0" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" x="872" y="362">连续打卡＋每周账单＋餐饮复盘，</text><text fill="#A99FB0" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" x="872" y="390">用习惯养成机制，直击行业最痛的</text><text fill="#A99FB0" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" x="872" y="418">「留存」难题。</text></g>
+
+  <g id="kpi-row">
+    <path fill="#241A2E" stroke="#3A2C44" stroke-width="1" d="M96,486 H1184 A16,16 0 0 1 1200,502 V612 A16,16 0 0 1 1184,628 H96 A16,16 0 0 1 80,612 V502 A16,16 0 0 1 96,486 Z" />
+    <line x1="360" y1="516" x2="360" y2="598" stroke="#3A2C44" stroke-width="1" />
+    <line x1="640" y1="516" x2="640" y2="598" stroke="#3A2C44" stroke-width="1" />
+    <line x1="920" y1="516" x2="920" y2="598" stroke="#3A2C44" stroke-width="1" />
+    <text x="220" y="566" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="50" font-weight="bold" fill="url(#kpiGrad)">&lt;5s</text>
+    <text x="220" y="600" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#A99FB0">单笔记账</text>
+    <text x="500" y="566" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="50" font-weight="bold" fill="url(#kpiGrad)">&gt;40%</text>
+    <text x="500" y="600" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#A99FB0">次日留存目标</text>
+    <text x="780" y="566" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="50" font-weight="bold" fill="url(#kpiGrad)">≥2笔</text>
+    <text x="780" y="600" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#A99FB0">人均日记账</text>
+    <text x="1060" y="566" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="50" font-weight="bold" fill="url(#kpiGrad)">0</text>
+    <text x="1060" y="600" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#A99FB0">广告 · 干扰</text>
+  </g>
+
+  <g id="footer">
+    <text x="80" y="676" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" fill="#6E6076">每日记账 · 投资人路演</text>
+    <text x="1200" y="676" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" fill="#6E6076">03 / 05</text>
+  </g>
+</svg>

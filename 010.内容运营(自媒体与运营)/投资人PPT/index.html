@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>每日记账 · 投资人 Pitch Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   设计令牌（token-based design system, pitch-deck-vc 风格）
+   ============================================================ */
+:root{
+  --pink:#FF6B8A;          /* 主强调（更鲜亮，吸睛） */
+  --pink-deep:#E84D6F;
+  --coral:#FF8C6B;         /* 渐变副色 */
+  --plum:#864E5A;          /* 品牌深色 */
+  --ink:#1A1320;           /* 深色背景 */
+  --ink-2:#241A2E;
+  --paper:#FFF7F9;         /* 浅色背景 */
+  --card:rgba(255,255,255,.06);
+  --card-line:rgba(255,255,255,.12);
+  --text-1:#FFFFFF;
+  --text-2:rgba(255,255,255,.72);
+  --text-3:rgba(255,255,255,.5);
+  --gold:#FFD479;
+  --mint:#7CE7C0;
+  --grad:linear-gradient(120deg,#FF6B8A 0%,#FF8C6B 60%,#FFD479 100%);
+  --grad-pink:linear-gradient(120deg,#FF6B8A,#E84D6F);
+  --radius:22px;
+  --shadow:0 24px 60px rgba(0,0,0,.45);
+  --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:"Plus Jakarta Sans","Noto Sans SC",system-ui,sans-serif;
+  background:#0d0a12;color:var(--text-1);
+  overflow:hidden;
+}
+/* ----- deck 容器 ----- */
+.deck{position:fixed;inset:0;}
+.slide{
+  position:absolute;inset:0;
+  display:none;
+  padding:64px 80px;
+  flex-direction:column;
+  background:radial-gradient(140% 120% at 12% 0%,#2A1B28 0%,#150F1C 55%,#0d0a12 100%);
+  overflow:hidden;
+}
+.slide.is-active{display:flex;}
+.slide::before{ /* 弥散光斑 */
+  content:"";position:absolute;width:680px;height:680px;right:-180px;top:-220px;
+  background:radial-gradient(circle,rgba(255,107,138,.32),transparent 62%);
+  filter:blur(8px);pointer-events:none;
+}
+.slide::after{
+  content:"";position:absolute;width:520px;height:520px;left:-160px;bottom:-200px;
+  background:radial-gradient(circle,rgba(255,140,107,.20),transparent 60%);
+  pointer-events:none;
+}
+.slide > *{position:relative;z-index:1;}
+
+/* ----- chrome ----- */
+.deck-foot{
+  position:absolute;left:80px;right:80px;bottom:30px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:13px;color:var(--text-3);letter-spacing:.04em;z-index:2;
+}
+.brand-foot{display:flex;align-items:center;gap:9px;font-weight:700;color:var(--text-2)}
+.brand-dot{width:9px;height:9px;border-radius:3px;background:var(--grad-pink)}
+.pageno{font-variant-numeric:tabular-nums}
+.progress{position:absolute;left:0;bottom:0;height:4px;background:var(--grad);transition:width .5s cubic-bezier(.4,0,.2,1);z-index:3}
+
+/* ----- 通用排版 ----- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--pink);padding:7px 15px;border:1px solid rgba(255,107,138,.4);
+  border-radius:999px;background:rgba(255,107,138,.08);
+}
+h1{font-size:64px;line-height:1.06;font-weight:800;letter-spacing:-.02em}
+h2{font-size:42px;line-height:1.12;font-weight:800;letter-spacing:-.01em}
+.lead{font-size:20px;line-height:1.6;color:var(--text-2);font-weight:400}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pink-text{color:var(--pink)}
+
+/* ----- 卡片 ----- */
+.card{
+  background:var(--card);border:1px solid var(--card-line);border-radius:var(--radius);
+  padding:26px 26px;backdrop-filter:blur(6px);
+}
+.grid{display:grid;gap:18px}
+
+/* ============ 动画 ============ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes popIn{0%{opacity:0;transform:scale(.86)}100%{opacity:1;transform:none}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:none}}
+.slide.is-active [data-anim]{opacity:0;animation-fill-mode:forwards;animation-duration:.7s;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+.slide.is-active [data-anim="fade-up"]{animation-name:fadeUp}
+.slide.is-active [data-anim="fade-in"]{animation-name:fadeIn}
+.slide.is-active [data-anim="pop"]{animation-name:popIn}
+.slide.is-active [data-anim="slide-right"]{animation-name:slideRight}
+[data-d="1"]{animation-delay:.08s}[data-d="2"]{animation-delay:.18s}
+[data-d="3"]{animation-delay:.28s}[data-d="4"]{animation-delay:.38s}
+[data-d="5"]{animation-delay:.48s}[data-d="6"]{animation-delay:.58s}
+[data-d="7"]{animation-delay:.68s}[data-d="8"]{animation-delay:.78s}
+
+/* ============ 封面（slide 1） ============ */
+.cover{justify-content:center;}
+.cover .logo{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+.cover .logo-mark{width:54px;height:54px;border-radius:16px;background:var(--grad-pink);
+  display:grid;place-items:center;font-size:28px;box-shadow:0 10px 30px rgba(255,107,138,.5)}
+.cover .logo-name{font-size:22px;font-weight:800}
+.cover h1{max-width:14ch;margin:8px 0 22px}
+.cover .slogan{font-size:24px;color:var(--gold);font-weight:700;letter-spacing:.02em;margin-bottom:26px}
+.cover .meta{display:flex;gap:30px;margin-top:40px;color:var(--text-3);font-size:14px;font-weight:600}
+.cover .meta b{color:var(--text-2)}
+
+/* ============ 卖点页（slide 3） ============ */
+.hero-num{font-size:88px;font-weight:800;line-height:1;letter-spacing:-.03em}
+.sell-grid{grid-template-columns:repeat(3,1fr);margin-top:auto;margin-bottom:auto}
+.sell{padding:30px 26px;position:relative;overflow:hidden}
+.sell .ic{font-size:38px;margin-bottom:16px;display:block}
+.sell h3{font-size:25px;font-weight:800;margin-bottom:10px}
+.sell p{font-size:15px;line-height:1.6;color:var(--text-2)}
+.sell .tag{position:absolute;top:18px;right:18px;font-size:12px;font-weight:700;color:var(--ink);
+  background:var(--gold);padding:4px 10px;border-radius:999px}
+.sell:nth-child(1){border-color:rgba(255,107,138,.45);background:linear-gradient(160deg,rgba(255,107,138,.16),rgba(255,107,138,.03))}
+
+/* ============ 数据 / KPI ============ */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:28px}
+.kpi .big{font-size:52px;font-weight:800;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.kpi .lab{margin-top:10px;font-size:14px;color:var(--text-2);font-weight:600}
+.kpi .sub{font-size:12px;color:var(--text-3);margin-top:4px}
+
+/* ============ 痛点页（slide 2） ============ */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:26px;flex:1;align-content:center}
+.pain-list{display:flex;flex-direction:column;gap:14px}
+.pain{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--card-line)}
+.pain .x{flex:none;width:30px;height:30px;border-radius:9px;background:rgba(232,77,111,.18);color:#FF8FA6;display:grid;place-items:center;font-weight:800}
+.pain b{font-size:16px;display:block;margin-bottom:3px}
+.pain span{font-size:13.5px;color:var(--text-2);line-height:1.5}
+.insight{align-self:center;font-size:26px;line-height:1.5;font-weight:700}
+.insight .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ============ 列表通用 ============ */
+.feat{display:flex;align-items:center;gap:12px;font-size:16px;color:var(--text-1);padding:13px 16px;border-radius:13px;background:rgba(255,255,255,.04);border:1px solid var(--card-line)}
+.feat .dot{width:8px;height:8px;border-radius:50%;background:var(--mint);flex:none}
+.feat.soon .dot{background:var(--gold)}
+.feat .badge{margin-left:auto;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px}
+.feat .badge.live{background:rgba(124,231,192,.16);color:var(--mint)}
+.feat .badge.next{background:rgba(255,212,121,.16);color:var(--gold)}
+
+/* ============ roadmap / ask（slide 6） ============ */
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:8px 0 26px}
+.road .ph{padding:22px;border-radius:18px;border:1px solid var(--card-line);background:rgba(255,255,255,.04);position:relative}
+.road .ph .step{font-size:13px;font-weight:800;color:var(--pink);letter-spacing:.1em}
+.road .ph h4{font-size:19px;font-weight:800;margin:8px 0 8px}
+.road .ph p{font-size:13.5px;color:var(--text-2);line-height:1.55}
+.ask{display:flex;gap:22px;align-items:stretch;margin-top:auto}
+.ask .box{flex:1;padding:26px;border-radius:18px;background:linear-gradient(160deg,rgba(255,107,138,.16),rgba(255,140,107,.05));border:1px solid rgba(255,107,138,.4)}
+.ask .box .t{font-size:14px;color:var(--text-2);font-weight:700;margin-bottom:10px}
+.ask .box .v{font-size:30px;font-weight:800}
+.ask .box .v small{font-size:15px;color:var(--text-2);font-weight:600}
+
+.section-head{margin-bottom:24px}
+.section-head h2{margin-top:14px}
+.title-row{display:flex;align-items:baseline;justify-content:space-between;gap:20px}
+.hint{position:fixed;right:18px;top:16px;font-size:12px;color:var(--text-3);z-index:9;letter-spacing:.04em}
+.note{font-size:13px;color:var(--text-3);margin-top:14px;line-height:1.5}
+.notes{display:none}
+</style>
+</head>
+<body>
+<div class="hint">← / → 翻页 · F 全屏 · O 总览</div>
+<div class="deck" id="deck">
+
+  <!-- ============ SLIDE 1 · 封面 ============ -->
+  <section class="slide cover is-active">
+    <div class="logo" data-anim="fade-up" data-d="1">
+      <div class="logo-mark">🐷</div>
+      <div class="logo-name">每日记账 <span style="color:var(--text-3);font-weight:600">DailyBudget</span></div>
+    </div>
+    <div data-anim="fade-up" data-d="2"><span class="eyebrow">投资人介绍 · Seed Round</span></div>
+    <h1 data-anim="fade-up" data-d="3">让记账像<span class="grad-text">发一条朋友圈</span>一样轻</h1>
+    <div class="slogan" data-anim="fade-up" data-d="4">「一秒记账，清楚花钱」</div>
+    <p class="lead" data-anim="fade-up" data-d="5" style="max-width:46ch">
+      一款面向年轻人的极简记账工具——把「记一笔」做到 5 秒内完成，<br/>用习惯养成机制，解决记账类产品最大的难题：<b style="color:#fff">留不住人</b>。
+    </p>
+    <div class="meta" data-anim="fade-in" data-d="6">
+      <span>📱 <b>三端</b> Web · iOS · Android · 小程序</span>
+      <span>📅 <b>2026.06</b></span>
+      <span>🔒 内部 · 仅供投资评估</span>
+    </div>
+    <div class="deck-foot"><div class="brand-foot"><span class="brand-dot"></span>每日记账</div><div class="pageno">01 / 06</div></div>
+  </section>
+
+  <!-- ============ SLIDE 2 · 痛点 & 机会 ============ -->
+  <section class="slide">
+    <div class="section-head">
+      <span class="eyebrow" data-anim="slide-right" data-d="1">问题 · The Problem</span>
+      <h2 data-anim="fade-up" data-d="2">人人都想记账，<span class="grad-text">没人能坚持</span></h2>
+    </div>
+    <div class="two-col">
+      <div class="pain-list">
+        <div class="pain" data-anim="fade-up" data-d="2"><div class="x">✕</div><div><b>步骤太繁琐</b><span>选账户、选分类、填备注……记一笔要点七八下</span></div></div>
+        <div class="pain" data-anim="fade-up" data-d="3"><div class="x">✕</div><div><b>容易忘记</b><span>一天结束才想起没记，消费早就忘了</span></div></div>
+        <div class="pain" data-anim="fade-up" data-d="4"><div class="x">✕</div><div><b>三分钟热度</b><span>下载一堆 App，一周后全部放弃</span></div></div>
+        <div class="pain" data-anim="fade-up" data-d="5"><div class="x">✕</div><div><b>数据看不懂</b><span>记了一堆数字，却没有清晰的复盘</span></div></div>
+      </div>
+      <div class="insight" data-anim="fade-up" data-d="6">
+        现有产品要么<span class="hl">太重</span>（随手记、鲨鱼记账），<br/>要么<span class="hl">绑生态、分类粗</span>（支付宝记账本）。<br/><br/>
+        <span style="font-size:19px;color:var(--text-2);font-weight:500">真正的缺口是一款<b style="color:#fff">够轻、无广告、能让人坚持</b>的记账工具——这正是我们的切入点。</span>
+      </div>
+    </div>
+    <div class="deck-foot"><div class="brand-foot"><span class="brand-dot"></span>每日记账</div><div class="pageno">02 / 06</div></div>
+  </section>
+
+  <!-- ============ SLIDE 3 · 核心卖点（重点吸睛页） ============ -->
+  <section class="slide">
+    <div class="title-row section-head">
+      <div>
+        <span class="eyebrow" data-anim="slide-right" data-d="1">核心卖点 · Why We Win</span>
+        <h2 data-anim="fade-up" data-d="2">三个字打穿市场：<span class="grad-text">轻 · 快 · 黏</span></h2>
+      </div>
+      <div style="text-align:right" data-anim="pop" data-d="2">
+        <div class="hero-num grad-text">5<span style="font-size:34px">秒</span></div>
+        <div style="font-size:13px;color:var(--text-3);font-weight:700;letter-spacing:.05em">单笔记账目标耗时</div>
+      </div>
+    </div>
+    <div class="grid sell-grid">
+      <div class="card sell" data-anim="pop" data-d="3">
+        <span class="tag">核心护城河</span>
+        <span class="ic">⚡</span>
+        <h3>极致的快</h3>
+        <p>「一镜直达」首页，金额 → 分类 → 保存三步搞定。打开即聚焦输入框，比任何竞品都快。</p>
+      </div>
+      <div class="card sell" data-anim="pop" data-d="4">
+        <span class="ic">🍰</span>
+        <h3>足够的轻</h3>
+        <p>无广告、不绑生态、零学习成本。粉嫩温暖的调性，让记账从「负担」变成「愉悦的小习惯」。</p>
+      </div>
+      <div class="card sell" data-anim="pop" data-d="5">
+        <span class="ic">🔥</span>
+        <h3>留得住的黏</h3>
+        <p>连续打卡、每周账单、餐饮专项复盘——用习惯养成机制，直击行业最痛的「留存」难题。</p>
+      </div>
+    </div>
+    <div class="kpi-row" data-anim="fade-up" data-d="6">
+      <div class="kpi"><div class="big">&lt;5s</div><div class="lab">单笔记账</div><div class="sub">行业普遍 15s+</div></div>
+      <div class="kpi"><div class="big">&gt;40%</div><div class="lab">次日留存目标</div><div class="sub">D1 Retention</div></div>
+      <div class="kpi"><div class="big">≥2 笔</div><div class="lab">人均日记账</div><div class="sub">高频使用</div></div>
+      <div class="kpi"><div class="big">0</div><div class="lab">广告 · 干扰</div><div class="sub">纯净体验</div></div>
+    </div>
+    <div class="deck-foot"><div class="brand-foot"><span class="brand-dot"></span>每日记账</div><div class="pageno">03 / 06</div></div>
+  </section>
+
+  <!-- ============ SLIDE 4 · 产品与进展 ============ -->
+  <section class="slide">
+    <div class="section-head">
+      <span class="eyebrow" data-anim="slide-right" data-d="1">产品 · Product & Traction</span>
+      <h2 data-anim="fade-up" data-d="2">三端已落地，核心链路<span class="grad-text">真实可跑</span></h2>
+    </div>
+    <div class="two-col" style="grid-template-columns:1.05fr .95fr;align-content:start;margin-top:6px">
+      <div class="grid" style="gap:11px">
+        <div class="feat" data-anim="fade-up" data-d="2"><span class="dot"></span>注册 / 登录（JWT + bcrypt 加密）<span class="badge live">已上线</span></div>
+        <div class="feat" data-anim="fade-up" data-d="3"><span class="dot"></span>快速记账 · 分类管理<span class="badge live">已上线</span></div>
+        <div class="feat" data-anim="fade-up" data-d="4"><span class="dot"></span>交易记录 · 搜索筛选<span class="badge live">已上线</span></div>
+        <div class="feat" data-anim="fade-up" data-d="5"><span class="dot"></span>餐饮专项分析 · 统计图表<span class="badge live">已上线</span></div>
+        <div class="feat soon" data-anim="fade-up" data-d="6"><span class="dot"></span>云同步 · 换机恢复<span class="badge next">研发中</span></div>
+        <div class="feat soon" data-anim="fade-up" data-d="7"><span class="dot"></span>账单导出 · 后台运营系统<span class="badge next">规划中</span></div>
+      </div>
+      <div class="grid" style="gap:16px;align-content:start">
+        <div class="card" data-anim="pop" data-d="4">
+          <div style="font-size:14px;color:var(--text-3);font-weight:700;letter-spacing:.06em;margin-bottom:6px">技术栈</div>
+          <div style="font-size:16px;line-height:1.7;color:var(--text-2)">Spring Boot + MyBatis + MySQL<br/>uni-app（Vue3）一套代码三端发布</div>
+        </div>
+        <div class="card" data-anim="pop" data-d="5" style="border-color:rgba(255,107,138,.4);background:linear-gradient(160deg,rgba(255,107,138,.14),transparent)">
+          <div style="font-size:14px;color:var(--text-3);font-weight:700;letter-spacing:.06em;margin-bottom:6px">当前阶段</div>
+          <div style="font-size:19px;font-weight:800;line-height:1.4">MVP 已成型<br/><span style="font-size:14px;color:var(--text-2);font-weight:600">核心链路打通，正进入内测打磨期</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="note" data-anim="fade-in" data-d="8">说明：云同步、账单导出等为下一阶段功能，本页已如实标注当前状态，不做超前承诺。</p>
+    <div class="deck-foot"><div class="brand-foot"><span class="brand-dot"></span>每日记账</div><div class="pageno">04 / 06</div></div>
+  </section>
+
+  <!-- ============ SLIDE 5 · 市场与用户 ============ -->
+  <section class="slide">
+    <div class="section-head">
+      <span class="eyebrow" data-anim="slide-right" data-d="1">市场 · Market & Users</span>
+      <h2 data-anim="fade-up" data-d="2">瞄准<span class="grad-text">2.6 亿</span>移动支付年轻人</h2>
+    </div>
+    <div class="two-col" style="align-content:start;margin-top:6px">
+      <div class="grid" style="gap:16px;align-content:start">
+        <div class="card" data-anim="fade-up" data-d="2">
+          <div style="font-size:15px;font-weight:800;margin-bottom:12px;color:var(--gold)">🎯 目标用户</div>
+          <div style="font-size:15px;line-height:1.9;color:var(--text-2)">
+            22–35 岁 · 一二线城市年轻白领<br/>
+            重度移动支付（微信 / 支付宝 / 信用卡）<br/>
+            <b style="color:#fff">想管钱但怕麻烦</b>，反复尝试记账却坚持不下来
+          </div>
+        </div>
+        <div class="card" data-anim="fade-up" data-d="3">
+          <div style="font-size:15px;font-weight:800;margin-bottom:12px;color:var(--mint)">📈 进入策略</div>
+          <div style="font-size:15px;line-height:1.9;color:var(--text-2)">
+            小红书 / 抖音「攒钱·消费降级」内容切入<br/>
+            「30 天记账挑战」社群裂变<br/>
+            私域沉淀核心用户，低成本冷启动
+          </div>
+        </div>
+      </div>
+      <div class="grid" style="gap:14px;align-content:start">
+        <div class="kpi card" data-anim="pop" data-d="3" style="padding:24px"><div class="big">2.6亿</div><div class="lab">移动支付年轻用户基数</div><div class="sub">高频、高粘性的记账人群</div></div>
+        <div class="kpi card" data-anim="pop" data-d="4" style="padding:24px"><div class="big">高频刚需</div><div class="lab">每天 2+ 次的使用场景</div><div class="sub">天然适合习惯养成与私域</div></div>
+        <div class="kpi card" data-anim="pop" data-d="5" style="padding:24px;border-color:rgba(255,107,138,.4)"><div class="big">差异化</div><div class="lab">最轻 · 无广告 · 强复盘</div><div class="sub">避开巨头正面战场</div></div>
+      </div>
+    </div>
+    <div class="deck-foot"><div class="brand-foot"><span class="brand-dot"></span>每日记账</div><div class="pageno">05 / 06</div></div>
+  </section>
+
+  <!-- ============ SLIDE 6 · 路线图 & 融资诉求 ============ -->
+  <section class="slide">
+    <div class="section-head">
+      <span class="eyebrow" data-anim="slide-right" data-d="1">路线图 & 诉求 · Roadmap & Ask</span>
+      <h2 data-anim="fade-up" data-d="2">我们要做的，和<span class="grad-text">需要你的</span></h2>
+    </div>
+    <div class="road">
+      <div class="ph" data-anim="fade-up" data-d="2"><div class="step">PHASE 1 · 0–3 月</div><h4>种子期</h4><p>核心链路打磨 + 50–200 真实用户内测，跑通激活与首笔记账。</p></div>
+      <div class="ph" data-anim="fade-up" data-d="3" style="border-color:rgba(255,107,138,.4);background:linear-gradient(160deg,rgba(255,107,138,.12),transparent)"><div class="step">PHASE 2 · 3–9 月</div><h4>增长期</h4><p>云同步上线、内容矩阵起量，目标 D7 留存 &gt;20%，验证规模化拉新。</p></div>
+      <div class="ph" data-anim="fade-up" data-d="4"><div class="step">PHASE 3 · 9 月+</div><h4>商业化</h4><p>账单导出 / 会员增值 / 数据洞察，探索可持续的变现路径。</p></div>
+    </div>
+    <div class="ask">
+      <div class="box" data-anim="pop" data-d="5"><div class="t">💰 本轮融资</div><div class="v">天使轮 <small>用于团队搭建 · 产品打磨 · 冷启动获客</small></div></div>
+      <div class="box" data-anim="pop" data-d="6"><div class="t">🚀 12 个月里程碑</div><div class="v">10 万注册用户 <small>验证留存与单位经济模型</small></div></div>
+    </div>
+    <p class="note" data-anim="fade-in" data-d="7" style="text-align:center;font-size:15px;color:var(--text-2)">
+      让记账重新变得简单——<b style="color:#fff">一秒记账，清楚花钱。</b>　期待与你同行。
+    </p>
+    <div class="deck-foot"><div class="brand-foot"><span class="brand-dot"></span>每日记账</div><div class="pageno">06 / 06</div></div>
+  </section>
+
+</div>
+<div class="progress" id="progress"></div>
+
+<script>
+/* ---------- 轻量键盘运行时（模拟 html-ppt runtime.js） ---------- */
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  let i=0;
+  const prog=document.getElementById('progress');
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('is-active',k===i));
+    prog.style.width=((i+1)/slides.length*100)+'%';
+    location.hash='#/'+(i+1);
+  }
+  function next(){show(i+1)} function prev(){show(i-1)}
+  document.addEventListener('keydown',e=>{
+    if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();next()}
+    else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev()}
+    else if(e.key==='Home'){show(0)} else if(e.key==='End'){show(slides.length-1)}
+    else if(e.key==='f'||e.key==='F'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen()}
+    else if(e.key==='o'||e.key==='O'){document.body.classList.toggle('ov')}
+    else if(e.key==='Escape'){document.body.classList.remove('ov')}
+  });
+  // 点击右/左半屏翻页
+  document.addEventListener('click',e=>{
+    if(document.body.classList.contains('ov'))return;
+    (e.clientX > window.innerWidth*0.5)?next():prev();
+  });
+  // hash 深链
+  const m=location.hash.match(/#\/(\d+)/); show(m?parseInt(m[1])-1:0);
+  // 重新触发动画
+  const reanim=()=>{const a=slides[i];a.querySelectorAll('[data-anim]').forEach(el=>{el.style.animation='none';el.offsetHeight;el.style.animation=''})};
+  const _show=show; window.__goto=_show;
+})();
+</script>
+<style>
+/* 总览网格（O 键） */
+body.ov .deck{transform:scale(1);}
+body.ov .slide{display:flex !important;position:relative;inset:auto;width:32%;height:auto;aspect-ratio:16/9;
+  margin:0;float:left;padding:18px;border-radius:14px;overflow:hidden;transform:scale(1);
+  border:1px solid var(--card-line);}
+body.ov{overflow:auto;background:#0d0a12}
+body.ov .deck{display:flex;flex-wrap:wrap;gap:1.3%;padding:24px;position:static;height:auto}
+body.ov h1{font-size:30px}body.ov h2{font-size:22px}body.ov .hero-num{font-size:42px}
+body.ov .hint,body.ov .progress{display:none}
+body.ov .slide *{animation:none !important;opacity:1 !important}
+</style>
+</body>
+</html>

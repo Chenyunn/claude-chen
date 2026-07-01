@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8FBFE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E8F4FC;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#40A4DF;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#7FDCA0;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="url(#bgGrad)"/>
+
+  <!-- Title bar -->
+  <rect width="1280" height="100" fill="#40A4DF"/>
+  <text x="50" y="65" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF">Day 1：天安门广场 & 故宫</text>
+  <text x="1230" y="65" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="18" fill="#FFB7C5" text-anchor="end" font-weight="bold">DAY 1</text>
+
+  <!-- Left card -->
+  <rect x="40" y="130" width="580" height="450" rx="20" fill="#FFFFFF" stroke="#40A4DF" stroke-width="2"/>
+  <text x="70" y="170" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="28" font-weight="bold" fill="#1E3A5F">📍 第一站：天安门广场 & 故宫</text>
+
+  <!-- Info items -->
+  <text x="70" y="220" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="18" fill="#5A6978">🎫 门票：免费（广场）/ 60元（故宫）</text>
+  <text x="70" y="260" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="18" fill="#5A6978">⏰ 建议游览：2-3小时</text>
+  <text x="70" y="300" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="18" fill="#5A6978">👣 亮点：升旗仪式、胡同穿越</text>
+  <text x="70" y="340" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="18" fill="#5A6978">📸 拍照：午门、太和殿视角最震撼</text>
+  <text x="70" y="380" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="18" fill="#5A6978">🍜 美食：四季民福烤鸭店</text>
+
+  <!-- Tips card -->
+  <rect x="70" y="430" width="520" height="120" rx="15" fill="#FFB7C5" opacity="0.15"/>
+  <text x="90" y="465" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="20" font-weight="bold" fill="#40A4DF">💡 小贴士</text>
+  <text x="90" y="500" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="16" fill="#5A6978">• 建议早起看升旗（需提前查看时间）</text>
+  <text x="90" y="530" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="16" fill="#5A6978">• 故宫需要提前在公众号预约</text>
+
+  <!-- Right image placeholder rect -->
+  <rect x="650" y="140" width="590" height="430" rx="15" fill="#E8F4FC"/>
+  <text x="945" y="360" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="24" fill="#40A4DF" text-anchor="middle">[配图区域]</text>
+  <text x="945" y="400" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="16" fill="#5A6978" text-anchor="middle">beijing_tiananmen.png</text>
+</svg>

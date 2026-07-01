@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#40A4DF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E3A5F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFB7C5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8FA3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="url(#bgGrad)"/>
+
+  <!-- Top accent bar -->
+  <rect width="1280" height="8" fill="url(#accentGrad)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="1100" cy="180" r="120" fill="#FFB7C5" opacity="0.15"/>
+  <circle cx="1150" cy="250" r="80" fill="#FFB7C5" opacity="0.1"/>
+  <circle cx="1000" cy="150" r="40" fill="#7FDCA0" opacity="0.2"/>
+
+  <!-- Title -->
+  <text x="640" y="280" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="72" font-weight="bold" fill="#FFFFFF" text-anchor="middle">北京3日游</text>
+
+  <!-- Subtitle -->
+  <text x="640" y="360" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="36" fill="#B8D4E8" text-anchor="middle">春日漫游 · 探寻古今</text>
+
+  <!-- Tagline -->
+  <text x="640" y="420" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="20" fill="#7FDCA0" text-anchor="middle">🌸 春天来北京赴一场穿越古今的约会</text>
+
+  <!-- Bottom info -->
+  <rect x="440" y="520" width="400" height="60" rx="30" fill="#FFFFFF" opacity="0.1"/>
+  <text x="640" y="555" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-size="18" fill="#FFFFFF" text-anchor="middle">精选4大景点 · 春日出行首选</text>
+</svg>

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <radialGradient id="glowE" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6B8A" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#FF6B8A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowE2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD479" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#FFD479" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bigGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF6B8A"/>
+      <stop offset="100%" stop-color="#FFD479"/>
+    </linearGradient>
+  </defs>
+
+  <g id="background">
+    <rect x="0" y="0" width="1280" height="720" fill="#1A1320"/>
+    <circle cx="1100" cy="80" r="320" fill="url(#glowE)"/>
+    <circle cx="120" cy="680" r="260" fill="url(#glowE2)"/>
+  </g>
+
+  <g id="header">
+    <text x="80" y="80" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="18" font-weight="bold" fill="#FF6B8A" letter-spacing="2">市场 · 路线图 · 诉求</text>
+    <text x="80" y="130" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="40" font-weight="bold" fill="#EDE6EC">高频刚需 + 清晰路线，<tspan fill="url(#bigGrad)">期待与你同行</tspan></text>
+  </g>
+
+  <g id="market-1">
+    <rect x="80" y="158" width="360" height="96" rx="14" fill="#241A2E" stroke="#3A2C44" stroke-width="1"/>
+    <use data-icon="tabler-filled/user" x="104" y="182" width="30" height="30" fill="#FF6B8A"/>
+    <text x="146" y="206" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="34" font-weight="bold" fill="url(#bigGrad)">2.6亿</text>
+    <text x="104" y="238" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#A99FB0">移动支付年轻用户基数（行业测算）</text>
+  </g>
+
+  <g id="market-2">
+    <rect x="460" y="158" width="360" height="96" rx="14" fill="#241A2E" stroke="#3A2C44" stroke-width="1"/>
+    <use data-icon="tabler-filled/calendar-month" x="484" y="182" width="30" height="30" fill="#FF8C6B"/>
+    <text x="526" y="206" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="30" font-weight="bold" fill="#EDE6EC">高频刚需</text>
+    <text x="484" y="238" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#A99FB0">每天 2+ 次的使用场景，强粘性</text>
+  </g>
+
+  <g id="market-3">
+    <rect x="840" y="158" width="360" height="96" rx="14" fill="#241A2E" stroke="#3A2C44" stroke-width="1"/>
+    <use data-icon="tabler-filled/crown" x="864" y="182" width="30" height="30" fill="#FFD479"/>
+    <text x="906" y="206" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="30" font-weight="bold" fill="#EDE6EC">差异化</text>
+    <text x="864" y="238" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#A99FB0">最轻、无广告，避开巨头正面战场</text>
+  </g>
+
+  <g id="road-1">
+    <rect x="80" y="282" width="360" height="148" rx="16" fill="#241A2E" stroke="#3A2C44" stroke-width="1"/>
+    <use data-icon="tabler-filled/seedling" x="106" y="306" width="28" height="28" fill="#7CE7C0"/>
+    <text x="144" y="328" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" font-weight="bold" fill="#FF6B8A" letter-spacing="1">PHASE 1 · 0–3 月</text>
+    <text x="106" y="372" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="26" font-weight="bold" fill="#EDE6EC">种子期</text>
+    <text x="106" y="406" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#A99FB0">核心打磨 + 50–200 用户内测，<tspan x="106" dy="24">跑通激活与首笔记账</tspan></text>
+  </g>
+
+  <g id="road-2">
+    <rect x="460" y="282" width="360" height="148" rx="16" fill="#2E2238" stroke="#FF6B8A" stroke-opacity="0.4" stroke-width="1.5"/>
+    <use data-icon="tabler-filled/chart-area-line" x="486" y="306" width="28" height="28" fill="#FF8C6B"/>
+    <text x="524" y="328" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" font-weight="bold" fill="#FF6B8A" letter-spacing="1">PHASE 2 · 3–9 月</text>
+    <text x="486" y="372" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="26" font-weight="bold" fill="#EDE6EC">增长期</text>
+    <text x="486" y="406" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#A99FB0">云同步 + 内容矩阵起量，<tspan x="486" dy="24">目标 D7 留存 &gt;20%</tspan></text>
+  </g>
+
+  <g id="road-3">
+    <rect x="840" y="282" width="360" height="148" rx="16" fill="#241A2E" stroke="#3A2C44" stroke-width="1"/>
+    <use data-icon="tabler-filled/coin-euro" x="866" y="306" width="28" height="28" fill="#FFD479"/>
+    <text x="904" y="328" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" font-weight="bold" fill="#FF6B8A" letter-spacing="1">PHASE 3 · 9 月+</text>
+    <text x="866" y="372" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="26" font-weight="bold" fill="#EDE6EC">商业化</text>
+    <text x="866" y="406" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#A99FB0">账单导出 / 会员增值 / 数据洞察，<tspan x="866" dy="24">探索可持续变现</tspan></text>
+  </g>
+
+  <g id="ask-1">
+    <rect x="80" y="456" width="555" height="150" rx="16" fill="#2E2238" stroke="#FF6B8A" stroke-opacity="0.45" stroke-width="1.5"/>
+    <use data-icon="tabler-filled/cash-banknote" x="108" y="484" width="32" height="32" fill="#FF6B8A"/>
+    <text x="150" y="510" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="18" font-weight="bold" fill="#A99FB0">本轮融资</text>
+    <text x="108" y="558" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="34" font-weight="bold" fill="#EDE6EC">天使轮</text>
+    <text x="108" y="592" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#A99FB0">用于团队搭建 · 产品打磨 · 冷启动获客</text>
+  </g>
+
+  <g id="ask-2">
+    <rect x="645" y="456" width="555" height="150" rx="16" fill="#2E2238" stroke="#FFD479" stroke-opacity="0.45" stroke-width="1.5"/>
+    <use data-icon="tabler-filled/flag-3" x="673" y="484" width="32" height="32" fill="#FFD479"/>
+    <text x="715" y="510" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="18" font-weight="bold" fill="#A99FB0">12 个月里程碑</text>
+    <text x="673" y="558" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="34" font-weight="bold" fill="#EDE6EC">10 万注册用户</text>
+    <text x="673" y="592" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="17" fill="#A99FB0">验证留存与单位经济模型</text>
+  </g>
+
+  <g id="closing">
+    <text x="640" y="660" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="22" fill="#A99FB0">让记账重新变得简单——<tspan fill="#FFD479" font-weight="bold">一秒记账，清楚花钱。</tspan></text>
+  </g>
+
+  <g id="footer">
+    <text x="80" y="694" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" fill="#6E6076">每日记账 · 投资人路演</text>
+    <text x="1200" y="694" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" fill="#6E6076">05 / 05</text>
+  </g>
+</svg>

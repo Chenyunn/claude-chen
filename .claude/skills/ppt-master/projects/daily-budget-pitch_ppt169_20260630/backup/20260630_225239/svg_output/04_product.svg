@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <radialGradient id="glowD" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7CE7C0" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#7CE7C0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <g id="background">
+    <rect x="0" y="0" width="1280" height="720" fill="#1A1320"/>
+    <circle cx="180" cy="120" r="300" fill="url(#glowD)"/>
+  </g>
+
+  <g id="header">
+    <text x="80" y="86" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="18" font-weight="bold" fill="#FF6B8A" letter-spacing="2">产品与进展 · PRODUCT &amp; TRACTION</text>
+    <text x="80" y="140" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="44" font-weight="bold" fill="#EDE6EC">三端已落地，核心链路<tspan fill="#7CE7C0">真实可跑</tspan></text>
+  </g>
+
+  <g id="feat-live">
+    <text x="80" y="200" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="20" font-weight="bold" fill="#7CE7C0">已实现</text>
+    <use data-icon="tabler-filled/circle-check" x="160" y="180" width="24" height="24" fill="#7CE7C0"/>
+
+    <rect x="80" y="220" width="640" height="52" rx="12" fill="#241A2E" stroke="#3A2C44" stroke-width="1"/>
+    <circle cx="110" cy="246" r="5" fill="#7CE7C0"/>
+    <text x="132" y="253" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="20" fill="#EDE6EC">注册 / 登录　<tspan fill="#A99FB0" font-size="17">JWT + bcrypt 加密，7 天免登录</tspan></text>
+
+    <rect x="80" y="282" width="640" height="52" rx="12" fill="#241A2E" stroke="#3A2C44" stroke-width="1"/>
+    <circle cx="110" cy="308" r="5" fill="#7CE7C0"/>
+    <text x="132" y="315" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="20" fill="#EDE6EC">快速记账 · 分类管理　<tspan fill="#A99FB0" font-size="17">10 预置 + 自定义分类</tspan></text>
+
+    <rect x="80" y="344" width="640" height="52" rx="12" fill="#241A2E" stroke="#3A2C44" stroke-width="1"/>
+    <circle cx="110" cy="370" r="5" fill="#7CE7C0"/>
+    <text x="132" y="377" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="20" fill="#EDE6EC">交易记录　<tspan fill="#A99FB0" font-size="17">按日分组、搜索、分类筛选、分页</tspan></text>
+
+    <rect x="80" y="406" width="640" height="52" rx="12" fill="#241A2E" stroke="#3A2C44" stroke-width="1"/>
+    <circle cx="110" cy="432" r="5" fill="#7CE7C0"/>
+    <text x="132" y="439" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="20" fill="#EDE6EC">餐饮分析 · 统计图表　<tspan fill="#A99FB0" font-size="17">SVG 趋势图、分类占比</tspan></text>
+  </g>
+
+  <g id="feat-soon">
+    <text x="80" y="498" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="20" font-weight="bold" fill="#FFD479">规划中</text>
+    <use data-icon="tabler-filled/sparkles" x="160" y="478" width="24" height="24" fill="#FFD479"/>
+
+    <rect x="80" y="518" width="312" height="52" rx="12" fill="#241A2E" stroke="#3A2C44" stroke-width="1"/>
+    <circle cx="110" cy="544" r="5" fill="#FFD479"/>
+    <text x="132" y="551" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="18" fill="#EDE6EC">云同步 · 换机恢复</text>
+
+    <rect x="408" y="518" width="312" height="52" rx="12" fill="#241A2E" stroke="#3A2C44" stroke-width="1"/>
+    <circle cx="438" cy="544" r="5" fill="#FFD479"/>
+    <text x="460" y="551" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="18" fill="#EDE6EC">账单导出 · 后台运营系统</text>
+  </g>
+
+  <g id="tech-stack">
+    <rect x="752" y="220" width="448" height="166" rx="16" fill="#2E2238" stroke="#3A2C44" stroke-width="1"/>
+    <use data-icon="tabler-filled/device-mobile" x="784" y="248" width="30" height="30" fill="#FF8C6B"/>
+    <text x="826" y="272" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="20" font-weight="bold" fill="#FFD479">技术栈</text>
+    <text x="786" y="320" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="20" fill="#EDE6EC">Spring Boot + MyBatis + MySQL</text>
+    <text x="786" y="356" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="20" fill="#A99FB0">uni-app（Vue3）<tspan fill="#EDE6EC">一套代码三端发布</tspan></text>
+  </g>
+
+  <g id="stage-card">
+    <rect x="752" y="402" width="448" height="166" rx="16" fill="#2E2238" stroke="#FF6B8A" stroke-opacity="0.4" stroke-width="1.5"/>
+    <use data-icon="tabler-filled/flag-3" x="784" y="430" width="30" height="30" fill="#FF6B8A"/>
+    <text x="826" y="454" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="20" font-weight="bold" fill="#FFD479">当前阶段</text>
+    <text x="786" y="504" font-family="&quot;Microsoft YaHei&quot;, SimHei, sans-serif" font-size="32" font-weight="bold" fill="#EDE6EC">MVP 已成型</text>
+    <text x="786" y="544" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="19" fill="#A99FB0">核心链路打通，进入内测打磨期</text>
+  </g>
+
+  <g id="footer">
+    <text x="80" y="612" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#A99FB0">说明：云同步 / 导出为下一阶段功能，本页按真实状态标注，<tspan fill="#EDE6EC">不超前承诺</tspan>。</text>
+    <line x1="80" y1="656" x2="1200" y2="656" stroke="#3A2C44" stroke-width="1"/>
+    <text x="80" y="686" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" fill="#6E6076">每日记账 · 投资人路演</text>
+    <text x="1200" y="686" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, sans-serif" font-size="15" fill="#6E6076">04 / 05</text>
+  </g>
+</svg>

@@ -1,0 +1,23 @@
+{
+  "name": "daily-expense-backend-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "每日记账后端服务测试 — Jest + Supertest 接口/安全测试",
+  "scripts": {
+    "test": "jest --config jest.config.js --forceExit --detectOpenHandles",
+    "test:watch": "jest --config jest.config.js --watch",
+    "test:coverage": "jest --config jest.config.js --coverage"
+  },
+  "dependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4",
+    "mysql2": "^3.11.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "joi": "^18.2.3",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "jest-junit": "^16.0.0"
+  }
+}

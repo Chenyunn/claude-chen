@@ -80,6 +80,16 @@ public class TransactionController {
     }
 
     /**
+     * 获取最近交易
+     */
+    @GetMapping("/recent")
+    public Result<List<Transaction>> getRecent(@CurrentUser User currentUser,
+                                               @RequestParam(defaultValue = "5") int limit) {
+        List<Transaction> transactions = transactionService.getRecentTransactions(currentUser.getId(), limit);
+        return Result.success(transactions);
+    }
+
+    /**
      * 月度汇总统计
      */
     @GetMapping("/report/monthly")

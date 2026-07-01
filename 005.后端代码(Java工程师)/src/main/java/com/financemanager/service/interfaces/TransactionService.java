@@ -46,6 +46,11 @@ public interface TransactionService {
     TransactionMapper.MonthlySummary getMonthlySummary(Long userId, LocalDate month);
 
     /**
+     * 获取最近交易
+     */
+    List<Transaction> getRecentTransactions(Long userId, int limit);
+
+    /**
      * 月度分类统计
      */
     List<TransactionMapper.CategorySummary> getMonthlyCategorySummary(Long userId, LocalDate month, String type);
